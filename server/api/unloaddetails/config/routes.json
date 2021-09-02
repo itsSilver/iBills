@@ -1,0 +1,84 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/unloaddetails",
+      "handler": "unloaddetails.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/unloaddetails/bylocation",
+      "handler": "unloaddetails.findbylocation",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/unloaddetails/byproduct",
+      "handler": "unloaddetails.findbyproduct",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/unloaddetails/alarms",
+      "handler": "unloaddetails.alarms",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/unloaddetails/lowstock",
+      "handler": "unloaddetails.lowstock",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/unloaddetails/count",
+      "handler": "unloaddetails.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/unloaddetails/:id",
+      "handler": "unloaddetails.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/unloaddetails",
+      "handler": "unloaddetails.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/unloaddetails/:id",
+      "handler": "unloaddetails.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/unloaddetails/:id",
+      "handler": "unloaddetails.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

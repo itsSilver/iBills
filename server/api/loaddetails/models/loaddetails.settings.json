@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "loaddetails",
+  "info": {
+    "name": "loaddetails",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "qty": {
+      "type": "float",
+      "required": true
+    },
+    "price": {
+      "type": "float",
+      "required": true
+    },
+    "tax": {
+      "type": "float"
+    },
+    "total": {
+      "type": "float"
+    },
+    "expiration": {
+      "type": "date"
+    },
+    "discount": {
+      "type": "decimal"
+    },
+    "product": {
+      "model": "product"
+    },
+    "load": {
+      "via": "loaddetails",
+      "model": "load"
+    }
+  }
+}

@@ -1,0 +1,85 @@
+<template>
+  <b-autocomplete
+    :data="data"
+    :placeholder="`${$t('help.list.search')} ...`"
+    ref="searchproduct"
+    v-model="name"
+    :loading="isFetching"
+    @typing="getAsyncData"
+    @select="onSelect"
+    icon="magnify"
+  >
+    <template slot-scope="props">
+      <div class="media">
+        <div class="media-content">
+          <b>{{ props.option.name }}</b>
+          <br />
+          <small>
+            {{ $t('table.category') }}: <b>{{ props.option.category }}</b>
+          </small>
+        </div>
+      </div>
+    </template>
+    <template #empty>{{ $t('messages.no_results') }} {{ name }}</template>
+  </b-autocomplete>
+</template>
+
+<script>
+import debounce from 'lodash/debounce'
+
+export default {
+  name: 'SearchProductUnload',
+  data() {
+    return {
+      data: [],
+      selected: null,
+      isFetching: false,
+      name: '',
+    }
+  },
+  methods: {
+    getAsyncData: debounce(function (name) {
+      if (!name.length) {
+        this.data = []
+        return
+      }
+      this.isFetching = true
+      this.$axios
+        .get(
+          `/products/lowData?_where[_or][0][name_contains]=${name}&_where[_or][1][barcode_contains]=${name}`,
+          {
+            params: {
+              _limit: -1,
+            },
+            headers: {
+              Authorization: `Bearer ${this.$auth.strategy.token.get()}`,
+              'Content-Type': 'application/json',
+            },
+          }
+        )
+        .then(({ data }) => {
+          this.data = data
+        })
+        .catch((error) => {
+          this.data = []
+          throw error
+        })
+        .finally(() => {
+          this.isFetching = false
+          if (this.data.length === 1) {
+            const firstOne = this.data[0]
+            this.name = firstOne.name
+            // this.$refs.searchproduct
+            const toHide = this.$refs.searchproduct.$el.childNodes[1]
+            toHide.style.display = 'none'
+            this.$store.commit('products/SET_LOAD_PRODUCTS', firstOne)
+          }
+        })
+    }, 500),
+
+    onSelect(val) {
+      this.$store.commit('products/SET_LOAD_PRODUCTS', val)
+    },
+  },
+}
+</script>

@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stocks",
+  "info": {
+    "name": "stock",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "qty": {
+      "type": "float",
+      "required": true,
+      "min": 0
+    },
+    "product": {
+      "autoPopulate": false,
+      "model": "product"
+    },
+    "warehouse": {
+      "autoPopulate": false,
+      "model": "warehouse"
+    },
+    "date": {
+      "type": "date"
+    },
+    "document_id": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}

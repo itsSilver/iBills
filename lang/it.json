@@ -1,0 +1,272 @@
+{
+  "nav": {
+    "dashboard": "Pannello",
+    "warehouses": "Magazzine",
+    "suppliers": "Fornitori",
+    "users": "Staff",
+    "customers": "Clienti",
+    "pos": "POS",
+    "accounting": "Contabilità",
+    "reports": "Rapporti",
+    "alarms": "Alarmi",
+    "products": "Articoli",
+    "settings": "Impostazioni",
+    "categories": "Categorie",
+    "logout": "Esci",
+    "unit_measures": "Unità di misura",
+    "vat-rates": "Aliquote IVA",
+    "unit-measures": "Unità di misura",
+    "unit-measure": "Unità di misura",
+    "catalog": "Catalogare",
+    "warehouse": "Magazzino",
+    "locations": "Spazi Magazzino",
+    "transfers": "Trasferimenti",
+    "inventory": "Inventario",
+    "loads": "Carichi",
+    "unloads": "Scarichi",
+    "transfer-warehouse": "Tra Magazzini",
+    "stock": "Scorta",
+    "purchases": "Acquisti",
+    "sales": "Saldi",
+    "invoices": "Fatture"
+  },
+  "navtop": {
+    "create": "Crea",
+    "delete": "Elimina",
+    "delete_selected": "Elimina selezionati",
+    "send": "Invia",
+    "save": "Salva",
+    "cancel": "Annulla",
+    "update": "Aggiorna",
+    "add_users": "Aggiungi utenti a {name}",
+    "back": "Indietro",
+    "import": "Importa {name}",
+    "export": "Esportare",
+    "csv": "Scarica csv",
+    "pdf": "Scarica il pdf",
+    "print": "Stampa"
+  },
+  "table": {
+    "name": "Nome",
+    "code": "Codice",
+    "type": "Tipologia di prodotto",
+    "address": "Indirizzo",
+    "vat_number": "Partita IVA",
+    "email": "Email",
+    "action": "Azioni",
+    "created": "Data Creato",
+    "phone_number": "Nr. Cellulare",
+    "number": "Numero",
+    "phone_office": "Nr. Ufficio",
+    "vat": "Partita IVA",
+    "fiscal": "Codice fiscale",
+    "city": "Città",
+    "website": "Website",
+    "fax": "Fax",
+    "note": "Nota",
+    "full_name": "Nome e cognome",
+    "role": "Ruolo",
+    "username": "Username",
+    "password": "Password",
+    "fiscal_code": "Codice fiscale",
+    "tax_value": "Valore fiscale",
+    "tax_code": "Codice fiscale %",
+    "barcode": "Barcode",
+    "cost": "Costo",
+    "category": "Categoria",
+    "stock": "Scorta",
+    "location": "Posizione",
+    "sale": "Prezzo di vendita",
+    "subcategories": "Sottocategorie",
+    "cost-tolerance": "Tolleranza sull costo",
+    "optional": "(Opzionale)",
+    "supplier": "Fornitore",
+    "min-qty": "Min. Quantità",
+    "max-qty": "Qtà massimo",
+    "qty_package": "Quantità della confezione del prodotto",
+    "unit": "Unità di misura",
+    "abbv": "Abbreviazione",
+    "price": "Prezzo",
+    "expiration": "Data di scadenza",
+    "color": "Colore di riferimento",
+    "sublocations": "Sottolocazioni",
+    "products": "Prodotti",
+    "transfers": "Trasferimenti",
+    "date": "Data",
+    "warehouse": "Magazzino",
+    "transport": "Trasporto",
+    "info": "Informazioni addizionali",
+    "shipping_cost": "Spese di spedizione",
+    "shipping_tax": "Tasse di spedizione %",
+    "total_cost": "Costo totale",
+    "load_reason": "Carica motivo",
+    "search_product": "Cerca un prodotto",
+    "quantity": "Quantità",
+    "details": "Dettagli",
+    "total_shipping": "Totale Spedizione",
+    "reason": "Carica motivo",
+    "discount": "Sconto %",
+    "vat-percentage": "IVA %",
+    "total": "Totale",
+    "products-total": "Totale documento",
+    "nostock-products": "Prodotti con scorte scarse",
+    "customer": "Cliente",
+    "operation-type": "Tipo di operazione",
+    "phone": "Numero di telefono.",
+    "creation_date": "Data di creazione",
+    "desciption": "Descrizione",
+    "currency": "Valuta",
+    "reference": "Riferimento",
+    "unload_reason": "Motivo dello scaricamento",
+    "total-no-vat": "Totale (IVA es.)",
+    "total-vat": "Iva totale",
+    "total_doc": "Documento totale",
+    "total_vat": "Iva totale",
+    "total_novat": "Totale (Iva Esclusa)",
+    "state": "Stato"
+  },
+  "user-nav": {
+    "profile": "Profilo",
+    "settings": "Impostazioni",
+    "notifications": "Notifiche"
+  },
+  "messages": {
+    "welcome": "Benvenutto",
+    "error": "Si è verificato un errore. Per favore riprova",
+    "confirm": "Conferma",
+    "created": "{name} è stato creato",
+    "create": "Crea un nuovo {name}",
+    "update": "Aggiorna {name}",
+    "delete": "Questo cancellerà definitivamente <b>{name}</b> <br> L'azione non può essere annullata.",
+    "updated": "{name} è stato aggiornato",
+    "deleted": "{name} è stato cancellato",
+    "all": "tutte le righe selezionate",
+    "fetching": "Caricando i dati...",
+    "not_found": "Non c'è niente qui...",
+    "placeholder": "Per favore inserisci {nome}",
+    "title": "iMagazine, POS & Sistema di inventario",
+    "add-new": "Aggiungi",
+    "no_results": "Nessun risultato per",
+    "create-pdf": "Generazione PDF, attendere prego!",
+    "search-product": "Cerca un prodotto nel campo di ricerca digitando il nome del prodotto o scansionando il codice a barre.",
+    "error-price": "Il prezzo estende la tolleranza del prezzo per questo prodotto impostata dall'amministratore!",
+    "error-max_qty": "La quantità estende il valore della quantità massima per questo prodotto, impostato dall'amministratore!",
+    "error-min_qty": "La quantità minima dell'ordine per questo prodotto è {qty}",
+    "saved": "{name} e stato salvato",
+    "no_stock": "Nessuna disponibilità per questo prodotto",
+    "no_stock_body": "Non c'è stock disponibile per questo prodotto, se continui con la creazione lo stock sarà impostato su un valore negativo."
+  },
+  "profile": {
+    "change-password": "Cambia Password",
+    "table": {
+      "current-password": "Password attuale",
+      "new-password": "Nuova password",
+      "confirm-password": "Conferma password"
+    }
+  },
+  "warehouse": {
+    "warehouse": "Magazzino",
+    "create": "Crea un nuovo magazzino",
+    "update": "Aggiorna magazzino",
+    "delete": "Questo cancellerà definitivamente <b>{name}</b> <br> L'azione non può essere annullata.",
+    "warehouse-data": "Dati di magazzino"
+  },
+  "supplier": {
+    "supplier": "Fornitore",
+    "create": "Crea un nuovo Fornitore",
+    "update": "Aggiorna Fornitore",
+    "delete": "Questo cancellerà definitivamente <b>{name}</b> <br> L'azione non può essere annullata."
+  },
+  "customer": {
+    "customer": "Cliente",
+    "create": "Crea un nuovo Cliente",
+    "update": "Aggiorna Cliente",
+    "delete": "Questo cancellerà definitivamente <b>{name}</b> <br> L'azione non può essere annullata."
+  },
+  "user": {
+    "user": "Utenti",
+    "create": "Crea un nuovo Utente",
+    "update": "Aggiorna Utente",
+    "delete": "Questo cancellerà definitivamente <b>{name}</b> <br> L'azione non può essere annullata."
+  },
+  "category": {
+    "category": "Categoria"
+  },
+  "help": {
+    "title": "Scorciatoie di aiuto",
+    "list": {
+      "search": "Cerca articoli",
+      "menu": "Commuta menu"
+    }
+  },
+  "vat-rate": {
+    "vat-rate": "IVA"
+  },
+  "product": {
+    "product": "Prodotto",
+    "product-data": "Dati del prodotto",
+    "action-title": "Azioni",
+    "qrcode": "QR Code",
+    "barcode": "codice a barre",
+    "new": "Crea nuovo prodotto",
+    "price-tolerance": {
+      "message": "Prezzo di costo massimo consentito"
+    },
+    "min-qty": {
+      "message": "Quantità minima di scorta"
+    },
+    "max-qty": {
+      "message": "Quantità massima di magazzino per ordine"
+    },
+    "create": "Crea nuovo prodotto",
+    "print-label": "Stampa etichetta",
+    "print-barcode": "Stampa codice a barre",
+    "label": "Etichetta del prodotto"
+  },
+  "errors": {
+    "cost-tolerance": "La tolleranza di costo dovrebbe essere maggiore del costo",
+    "quantity": "Si prega di aggiungere la quantità"
+  },
+  "location": {
+    "location": "Posizione",
+    "location-data": "Dati sulla posizione"
+  },
+  "loads": {
+    "create": "Crea nuovo carico",
+    "loads-data": "Elenco carichi"
+  },
+  "load": {
+    "load": "carico"
+  },
+  "content": {
+    "stock-price": "Prezzo di costo delle articoli",
+    "stock-value": "Prezzo dell valore dei articoli",
+    "stock-profit": "Valore Profitto",
+    "type-load": "Caricare",
+    "type-unload": "Scarica"
+  },
+  "alarms": {
+    "expire-products": "Prodotti in scadenza a breve"
+  },
+  "unload": {
+    "unload": "Scarica"
+  },
+  "settings": {
+    "codes": "Codici"
+  },
+  "sale": {
+    "sale": "saldo"
+  },
+  "sales": {
+    "create": "Crea una nuova vendita"
+  },
+  "invoices": {
+    "state": {
+      "progress": "In corso",
+      "open": "Aperto",
+      "completed": "Completato",
+      "canceled": "Annullato",
+      "confirmed": "Confermato"
+    }
+  }
+}

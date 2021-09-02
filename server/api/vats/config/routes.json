@@ -1,0 +1,60 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/vats",
+      "handler": "vats.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/vats/count",
+      "handler": "vats.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/vats/:id",
+      "handler": "vats.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/vats",
+      "handler": "vats.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/vats/deleteAll",
+      "handler": "vats.deleteAll",
+      "config": {
+        "policies": ["warehouse.isAdmin"]
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/vats/:id",
+      "handler": "vats.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/vats/:id",
+      "handler": "vats.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

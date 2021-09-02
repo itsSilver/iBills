@@ -1,0 +1,74 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "name": "product",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "code": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "barcode": {
+      "type": "biginteger",
+      "unique": true,
+      "required": false
+    },
+    "cost": {
+      "type": "decimal",
+      "required": true
+    },
+    "cost_tolerance": {
+      "type": "decimal"
+    },
+    "min_qty": {
+      "type": "integer"
+    },
+    "max_qty": {
+      "type": "decimal"
+    },
+    "category": {
+      "model": "category"
+    },
+    "qty_package": {
+      "type": "integer"
+    },
+    "vat": {
+      "model": "vats"
+    },
+    "unit": {
+      "model": "units"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "warehouse",
+        "expense"
+      ]
+    },
+    "supplier": {
+      "model": "supplier"
+    },
+    "note": {
+      "type": "richtext"
+    },
+    "sale": {
+      "type": "decimal"
+    },
+    "location": {
+      "model": "locations"
+    }
+  }
+}

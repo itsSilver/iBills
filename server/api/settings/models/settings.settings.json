@@ -1,0 +1,58 @@
+{
+  "kind": "singleType",
+  "collectionName": "settings",
+  "info": {
+    "name": "Settings",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": false,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "company_id": {
+      "type": "integer",
+      "default": 1,
+      "required": true
+    },
+    "warehouse_code": {
+      "type": "string"
+    },
+    "loads_code": {
+      "type": "string"
+    },
+    "suppliers_code": {
+      "type": "string"
+    },
+    "customers_code": {
+      "type": "string"
+    },
+    "staff_code": {
+      "type": "string"
+    },
+    "products_code": {
+      "type": "string"
+    },
+    "categories_code": {
+      "type": "string"
+    },
+    "locations_code": {
+      "type": "string"
+    },
+    "unloads_code": {
+      "type": "string"
+    },
+    "currency": {
+      "type": "string",
+      "default": "€"
+    },
+    "starting_balance": {
+      "type": "float"
+    },
+    "sales_code": {
+      "type": "string"
+    }
+  }
+}

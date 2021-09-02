@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categories",
+  "info": {
+    "name": "category",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "code": {
+      "type": "string",
+      "maxLength": 15,
+      "unique": true
+    },
+    "note": {
+      "type": "richtext"
+    },
+    "parent": {
+      "autoPopulate": false,
+      "model": "category"
+    }
+  }
+}

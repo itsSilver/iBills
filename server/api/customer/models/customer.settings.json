@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customers",
+  "info": {
+    "name": "customer",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "maxLength": 35,
+      "required": true
+    },
+    "address": {
+      "type": "string"
+    },
+    "number": {
+      "type": "biginteger",
+      "unique": true
+    },
+    "city": {
+      "type": "string"
+    },
+    "phone_office": {
+      "type": "biginteger"
+    },
+    "phone_mobile": {
+      "type": "biginteger"
+    },
+    "fax": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "website": {
+      "type": "string"
+    },
+    "vat_number": {
+      "type": "string"
+    },
+    "fiscal_code": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string",
+      "unique": true
+    },
+    "note": {
+      "type": "richtext"
+    },
+    "barcode": {
+      "type": "string"
+    },
+    "loyalty_points": {
+      "type": "decimal",
+      "default": 0
+    }
+  }
+}

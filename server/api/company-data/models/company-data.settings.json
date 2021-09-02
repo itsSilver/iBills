@@ -1,0 +1,52 @@
+{
+  "kind": "singleType",
+  "collectionName": "company_data",
+  "info": {
+    "name": "Company Data",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "maxLength": 35
+    },
+    "desc": {
+      "type": "text"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "creation_date": {
+      "type": "date"
+    },
+    "nipt": {
+      "type": "string",
+      "maxLength": 35
+    },
+    "code": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "phone": {
+      "type": "biginteger"
+    }
+  }
+}
