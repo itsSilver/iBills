@@ -65,7 +65,35 @@ export default {
             label: `${this.$t('nav.users')}`,
           },
         ],
-
+        `${this.$t('nav.accounting')}`,
+        [
+          {
+            label: `${this.$t('nav.invoices')}`,
+            icon: 'cart',
+            menu: [
+              {
+                to: `/purchases`,
+                label: `${this.$t('nav.purchases')}`,
+                icon: 'cart-plus',
+              },
+              {
+                to: '/sales',
+                label: `${this.$t('nav.sales')}`,
+                icon: 'cart-minus',
+              },
+            ],
+          },
+          {
+            to: `/purchases`,
+            label: `${this.$t('nav.purchases')}`,
+            icon: 'cart-plus',
+          },
+          {
+            to: '/sales',
+            label: `${this.$t('nav.sales')}`,
+            icon: 'cart-minus',
+          },
+        ],
         `${this.$t('nav.catalog')}`,
         [
           {
@@ -97,35 +125,7 @@ export default {
             icon: 'home-city',
           },
         ],
-        `${this.$t('nav.accounting')}`,
-        [
-          {
-            label: `${this.$t('nav.invoices')}`,
-            icon: 'cart',
-            menu: [
-              {
-                to: `/purchases`,
-                label: `${this.$t('nav.purchases')}`,
-                icon: 'cart-plus',
-              },
-              {
-                to: '/sales',
-                label: `${this.$t('nav.sales')}`,
-                icon: 'cart-minus',
-              },
-            ],
-          },
-          {
-            to: `/purchases`,
-            label: `${this.$t('nav.purchases')}`,
-            icon: 'cart-plus',
-          },
-          {
-            to: '/sales',
-            label: `${this.$t('nav.sales')}`,
-            icon: 'cart-minus',
-          },
-        ],
+
         'Settings',
         [
           {
