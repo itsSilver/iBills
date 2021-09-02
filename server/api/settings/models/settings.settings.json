@@ -20,9 +20,6 @@
     "warehouse_code": {
       "type": "string"
     },
-    "loads_code": {
-      "type": "string"
-    },
     "suppliers_code": {
       "type": "string"
     },
@@ -39,9 +36,6 @@
       "type": "string"
     },
     "locations_code": {
-      "type": "string"
-    },
-    "unloads_code": {
       "type": "string"
     },
     "currency": {

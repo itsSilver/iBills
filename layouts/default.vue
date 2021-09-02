@@ -101,37 +101,6 @@ export default {
             label: `${this.$t('nav.locations')}`,
             icon: 'package',
           },
-          {
-            label: `${this.$t('nav.transfers')}`,
-            icon: 'transfer',
-            menu: [
-              {
-                to: '/loads',
-                label: `${this.$t('nav.loads')}`,
-                icon: 'transfer',
-              },
-              {
-                to: '/unloads',
-                label: `${this.$t('nav.unloads')}`,
-                icon: 'transfer',
-              },
-              {
-                to: '/transfer',
-                label: `${this.$t('nav.transfer-warehouse')}`,
-                icon: 'transfer',
-              },
-            ],
-          },
-          {
-            to: '/stock',
-            label: `${this.$t('nav.stock')}`,
-            icon: 'package-up',
-          },
-          {
-            to: '/inventory',
-            label: `${this.$t('nav.inventory')}`,
-            icon: 'calendar',
-          },
         ],
         `${this.$t('nav.accounting')}`,
         [
