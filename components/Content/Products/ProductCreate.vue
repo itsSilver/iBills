@@ -290,47 +290,7 @@
             </b-autocomplete>
           </b-field>
         </div>
-        <div class="column">
-          <b-field :label="$t('table.location')">
-            <b-autocomplete
-              size="is-small"
-              v-model="selectedLocation"
-              open-on-focus
-              ref="autocompleteLocation"
-              :loading="loadingLocation"
-              :data="LocationData"
-              @typing="filteredLocation"
-              :placeholder="
-                $t('messages.placeholder', {
-                  name: `${$t('table.location')}`,
-                })
-              "
-              field="name"
-              @select="onSelectLocation"
-              @focus="onFocusLocation"
-              required
-            >
-              <template slot-scope="props">
-                <div class="media">
-                  <div class="media-content">
-                    <p>
-                      <b>{{ props.option.name }}</b>
-                      <br />
 
-                      {{ $t('table.phone_number') }}:
-                      <b>{{ props.option.phone_mobile }}</b>
-                    </p>
-                  </div>
-                </div>
-              </template>
-
-              <template #empty
-                >{{ $t('messages.no_results') }}
-                {{ selectedLocation }}</template
-              >
-            </b-autocomplete>
-          </b-field>
-        </div>
         <div class="column">
           <b-field :label="$t('table.type')">
             <b-select
@@ -406,13 +366,8 @@ export default {
       loadingUnit: false,
       openFocusUnit: false,
       selectedSupplier: null,
-      selectedLocation: null,
       loadingSupplier: false,
       openFocusSupplier: false,
-      LocationData: [],
-      LocationID: null,
-      loadingLocation: false,
-      openFocusLocation: false,
     }
   },
   mounted() {
@@ -448,7 +403,6 @@ export default {
       this.form.type = this.productType
       this.form.vat = this.vatID
       this.form.unit = this.unitID
-      this.form.location = this.LocationID
       await this.$axios
         .post('/products', this.form, {
           headers: {
@@ -541,53 +495,7 @@ export default {
     },
 
     //Location
-    onSelectLocation(val) {
-      this.LocationID = val.id
-    },
 
-    async onFocusLocation() {
-      this.loadingLocation = true
-      await this.$axios
-        .get('/locations', {
-          params: {
-            _limit: -1,
-          },
-          headers: {
-            Authorization: `Bearer ${this.$auth.strategy.token.get()}`,
-            'Content-Type': 'application/json',
-          },
-        })
-        .then((res) => {
-          this.loadingLocation = false
-          this.LocationData = res.data
-        })
-    },
-    filteredLocation(val) {
-      let filtered = this.LocationData.filter((name) => {
-        return (
-          name.name.toString().toLowerCase().indexOf(val.toLowerCase()) >= 0
-        )
-      })
-
-      if (val === '') {
-        this.onFocusLocation()
-      }
-      this.LocationData = filtered
-      return this.LocationData
-    },
-    filteredUnit(val) {
-      let filtered = this.unitData.filter((name) => {
-        return (
-          name.name.toString().toLowerCase().indexOf(val.toLowerCase()) >= 0
-        )
-      })
-
-      if (val === '') {
-        this.onFocusUnit()
-      }
-      this.unitData = filtered
-      return this.unitData
-    },
     filteredSupplier(val) {
       let filtered = this.supplierData.filter((name) => {
         return (

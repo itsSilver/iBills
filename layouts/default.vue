@@ -96,11 +96,6 @@ export default {
             label: `${this.$t('nav.warehouse')}`,
             icon: 'home-city',
           },
-          {
-            to: '/locations',
-            label: `${this.$t('nav.locations')}`,
-            icon: 'package',
-          },
         ],
         `${this.$t('nav.accounting')}`,
         [

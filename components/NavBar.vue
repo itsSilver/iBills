@@ -78,13 +78,6 @@
         </nav-bar-menu>
 
         <lang-switcher />
-        <NuxtLink
-          :to="localePath('alarms')"
-          class="navbar-item is-desktop-icon-only has-divider"
-        >
-          <b-icon icon="bell-outline" custom-size="default" />
-          <span>{{ $t('nav.alarms') }}</span></NuxtLink
-        >
         <a
           title="help"
           class="navbar-item has-divider is-desktop-icon-only"
