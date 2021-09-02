@@ -88,105 +88,13 @@ module.exports = {
 
     entity = await strapi.services.sales.create(ctx.request.body)
     let sales = sanitizeEntity(entity, { model: strapi.models.sales })
-
-    if (sales) {
-      let createUnload = {
-        sale: sales.id,
-        code: sales.code,
-        date: sales.date,
-        note: sales.note,
-        customer: sales.customer,
-        warehouse: sales.warehouse,
-        reason: sales.reference,
-        total: ctx.request.body.total,
-      }
-      let unload = await strapi.services.unload.create(createUnload)
-      if (unload) {
-        let details = sales.products
-        if (details.length !== 0) {
-          details.forEach((element) => {
-            let payload = {
-              qty: parseInt(element.qty),
-              discount: element.discount,
-              total: element.total,
-              price: element.product.sale,
-              product: element.product.id,
-              warehouse: sales.warehouse,
-              tax: element.product.vat,
-              unload: unload.id,
-            }
-            return strapi.services.unloaddetails.createAll(payload)
-          })
-        }
-      }
-    }
     return sales
   },
-  // async update(ctx) {
-  //   const { id } = ctx.params
 
-  //   let entity
-
-  //   entity = await strapi.services.sales.update({ id }, ctx.request.body)
-
-  //   let sales = sanitizeEntity(entity, { model: strapi.models.sales })
-  //   let total = sales.products.reduce((a, b) => {
-  //     return a.total + b.total
-  //   })
-  //   if (sales) {
-  //     let createUnload = {
-  //       sale: sales.id,
-  //       code: sales.code,
-  //       date: sales.date,
-  //       note: sales.note,
-  //       customer: sales.customer,
-  //       warehouse: sales.warehouse,
-  //       reason: sales.reference,
-  //       total: total,
-  //     }
-  //     let unload = await strapi.services.unload.create(createUnload)
-  //     if (unload) {
-  //       let details = sales.products
-  //       if (details.length !== 0) {
-  //         details.forEach((element) => {
-  //           let payload = {
-  //             qty: parseInt(element.qty),
-  //             discount: element.discount,
-  //             total: element.total,
-  //             price: element.product.sale,
-  //             product: element.product.id,
-  //             warehouse: sales.warehouse,
-  //             tax: element.product.vat,
-  //             unload: unload.id,
-  //           }
-  //           return strapi.services.unloaddetails.createAll(payload)
-  //         })
-  //       }
-  //     }
-  //   }
-  //   return sales
-  // },
   async delete(ctx) {
     const { id } = ctx.params
     let toDelete
-    let unload = await strapi.services.unload.find({
-      'sale.id': id,
-    })
-    if (unload.length !== 0) {
-      let details = unload[0].unloaddetails
-      if (details.length !== 0) {
-        details.forEach((element) => {
-          let payload = {
-            qty: element.qty,
-            product: element.product,
-            warehouse: unload[0].warehouse.id,
-            id: element.id,
-          }
-          return strapi.services.unloaddetails.deleteAll(payload)
-        })
-      }
-      strapi.services.unload.delete({ id: unload[0].id })
-    }
+
     const entity = await strapi.services.sales.delete({ id })
     toDelete = sanitizeEntity(entity, { model: strapi.models.sales })
     return toDelete
