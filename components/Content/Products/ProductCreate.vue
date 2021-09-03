@@ -210,11 +210,7 @@
                   </div>
                 </div>
               </template>
-              <template #header>
-                <a @click="showAddUnitMeasure">
-                  <span> {{ $t('messages.add-new') }}... </span>
-                </a>
-              </template>
+
               <template #empty
                 >{{ $t('messages.no_results') }} {{ selectedUnit }}</template
               >
@@ -278,11 +274,7 @@
                   </div>
                 </div>
               </template>
-              <template #header>
-                <a @click="showAddSupplier">
-                  <span> {{ $t('messages.add-new') }}... </span>
-                </a>
-              </template>
+              <template #header> </template>
               <template #empty
                 >{{ $t('messages.no_results') }}
                 {{ selectedSupplier }}</template
@@ -394,12 +386,11 @@ export default {
           ariaRole: 'alertdialog',
           ariaModal: true,
         })
-        console.log('value', this.$t('errors.cost-tolerance'))
         this.$refs.cost_tolerance.$el.focus()
         return
       }
-      ;(this.form.category = this.categoryID),
-        (this.form.supplier = this.supplierID)
+      this.form.category = this.categoryID
+      this.form.supplier = this.supplierID
       this.form.type = this.productType
       this.form.vat = this.vatID
       this.form.unit = this.unitID
@@ -423,36 +414,7 @@ export default {
           console.log('err', err.data)
         })
     },
-    showAddUnitMeasure() {
-      this.$buefy.dialog.prompt({
-        message: `Unit`,
-        inputAttrs: {
-          placeholder: 'e.g. Watermelon',
-          maxlength: 20,
-          value: this.selectedUnit,
-        },
-        confirmText: 'Add',
-        onConfirm: (value) => {
-          this.data.push(value)
-          this.$refs.autocomplete.setSelected(value)
-        },
-      })
-    },
-    showAddSupplier() {
-      this.$buefy.dialog.prompt({
-        message: `Supplier`,
-        inputAttrs: {
-          placeholder: 'e.g. Watermelon',
-          maxlength: 20,
-          value: this.selectedSupplier,
-        },
-        confirmText: 'Add',
-        onConfirm: (value) => {
-          this.data.push(value)
-          this.$refs.autocomplete.setSelected(value)
-        },
-      })
-    },
+
     onSelectUnit(val) {
       this.unitID = val
     },
@@ -494,7 +456,19 @@ export default {
         })
     },
 
-    //Location
+    filteredUnit(val) {
+      let filtered = this.unitData.filter((name) => {
+        return (
+          name.name.toString().toLowerCase().indexOf(val.toLowerCase()) >= 0
+        )
+      })
+
+      if (val === '') {
+        this.onFocusUnit()
+      }
+      this.unitData = filtered
+      return this.unitData
+    },
 
     filteredSupplier(val) {
       let filtered = this.supplierData.filter((name) => {

@@ -73,15 +73,7 @@
                 />
               </b-field>
             </div>
-            <div class="column">
-              <b-field :label="$t('table.vat')">
-                <b-input
-                  v-model="form.vat_number"
-                  name="vat_number"
-                  size="is-small"
-                />
-              </b-field>
-            </div>
+
             <div class="column">
               <b-field :label="$t('table.fiscal')">
                 <b-input
@@ -91,8 +83,6 @@
                 />
               </b-field>
             </div>
-          </div>
-          <div class="columns">
             <div class="column">
               <b-field :label="$t('table.city')">
                 <b-input v-model="form.city" name="city" size="is-small" />
@@ -105,20 +95,6 @@
                   name="address"
                   size="is-small"
                 />
-              </b-field>
-            </div>
-            <div class="column">
-              <b-field :label="$t('table.website')">
-                <b-input
-                  v-model="form.website"
-                  name="website"
-                  size="is-small"
-                />
-              </b-field>
-            </div>
-            <div class="column">
-              <b-field :label="$t('table.fax')">
-                <b-input v-model="form.fax" name="fax" size="is-small" />
               </b-field>
             </div>
           </div>
@@ -135,6 +111,7 @@
             </div>
             <div class="column"></div>
           </div>
+          <div class="columns"></div>
           <hr />
           <div class="is-flex footer-new-modal">
             <div class="control">
@@ -174,12 +151,9 @@ export default {
         email: null,
         phone_mobile: null,
         phone_office: null,
-        vat_number: null,
         fiscal_code: null,
         city: null,
         address: null,
-        website: null,
-        fax: null,
         note: null,
       },
     }

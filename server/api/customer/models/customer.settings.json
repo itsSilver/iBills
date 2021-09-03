@@ -33,17 +33,8 @@
     "phone_mobile": {
       "type": "biginteger"
     },
-    "fax": {
-      "type": "string"
-    },
     "email": {
       "type": "email"
-    },
-    "website": {
-      "type": "string"
-    },
-    "vat_number": {
-      "type": "string"
     },
     "fiscal_code": {
       "type": "string"

@@ -35,9 +35,6 @@
     "categories_code": {
       "type": "string"
     },
-    "locations_code": {
-      "type": "string"
-    },
     "currency": {
       "type": "string",
       "default": "€"

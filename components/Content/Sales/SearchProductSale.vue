@@ -78,13 +78,13 @@ export default {
             // this.$refs.searchproduct
             const toHide = this.$refs.searchproduct.$el.childNodes[1]
             toHide.style.display = 'none'
-            this.getStock(firstOne)
+            this.$store.commit('products/SET_LOAD_PRODUCTS', firstOne)
           }
         })
     }, 500),
 
     async onSelect(val) {
-      this.getStock(val)
+      this.$store.commit('products/SET_LOAD_PRODUCTS', val)
     },
     async getStock(val) {
       await this.$axios
@@ -118,10 +118,5 @@ export default {
         })
     },
   },
-  // computed: {
-  //   warehouseID() {
-  //     return this.$store.state.companies.company_id
-  //   },
-  // },
 }
 </script>

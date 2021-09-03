@@ -63,13 +63,6 @@
               {{ props.row.address | truncate(25) }}
             </b-table-column>
             <b-table-column
-              :label="$t('table.vat_number')"
-              field="vat_number"
-              v-slot="props"
-            >
-              {{ props.row.vat_number }}
-            </b-table-column>
-            <b-table-column
               :label="$t('table.fiscal_code')"
               field="fiscal_code"
               v-slot="props"
@@ -321,7 +314,9 @@ export default {
      * Filter to truncate string, accepts a length parameter
      */
     truncate(value, length) {
-      return value.length > length ? value.substr(0, length) + '...' : value
+      if (value) {
+        return value.length > length ? value.substr(0, length) + '...' : value
+      }
     },
   },
   mounted() {
