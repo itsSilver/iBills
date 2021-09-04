@@ -56,6 +56,7 @@
           <b-field :label="$t('table.cost')">
             <client-only>
               <currency-input
+                :currency="currency"
                 v-model="prod.cost"
                 class="input"
                 required
@@ -79,6 +80,7 @@
           >
             <client-only>
               <currency-input
+                :currency="currency"
                 v-model="prod.cost_tolerance"
                 class="input"
                 required
@@ -97,6 +99,7 @@
           <b-field :label="$t('table.sale')">
             <client-only>
               <currency-input
+                :currency="currency"
                 v-model="prod.sale"
                 class="input is-small"
                 required
@@ -308,6 +311,11 @@ export default {
       handler(val) {
         this.prod = val
       },
+    },
+  },
+  computed: {
+    currency() {
+      return this.$store.state.currency
     },
   },
   methods: {

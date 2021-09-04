@@ -53,7 +53,7 @@ export default {
         .then((response) => {
           const data = response.data
           this.$store.commit('companies/SET_COMPANY_ID', data)
-          this.$store.commit('SET_CURRENCY', data.currency)
+          this.$store.commit('SET_CURRENCY', data.currency.code)
           this.company_id = response.data.company_id
         })
         .catch((err) => {

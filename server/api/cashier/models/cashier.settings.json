@@ -2,12 +2,13 @@
   "kind": "collectionType",
   "collectionName": "cashiers",
   "info": {
-    "name": "cashier"
+    "name": "cashier",
+    "description": ""
   },
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -16,6 +17,9 @@
     },
     "currency": {
       "model": "currency"
+    },
+    "balance": {
+      "type": "float"
     }
   }
 }

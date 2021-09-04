@@ -26,11 +26,11 @@
                 </b-field>
               </div>
               <div class="column">
-                <b-field :label="$t('table.symbol')">
+                <b-field :label="$t('table.code')">
                   <b-input
-                    v-model="createData.symbol"
+                    v-model="createData.code"
                     size="is-small"
-                    name="symbol"
+                    name="code"
                     required
                   />
                 </b-field>

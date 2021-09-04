@@ -21,10 +21,10 @@
                 </b-field>
               </div>
               <div class="column">
-                <b-field :label="$t('table.symbol')">
+                <b-field :label="$t('table.code')">
                   <b-input
-                    v-model="updateData.symbol"
-                    name="symbol"
+                    v-model="updateData.code"
+                    name="code"
                     size="is-small"
                     required
                   />

@@ -3,12 +3,23 @@
     <div class="columns">
       <div class="column">
         <b-field :label="$t('table.currency')">
-          <b-input
-            v-model="settingsData.currency"
-            name="name"
-            required
-            size="is-small"
-          />
+          <client-only>
+            <b-select
+              v-model="settingsData.currency"
+              size="is-small"
+              expanded
+              v-if="settingsData.currency"
+              :loading="currencyLoaded"
+            >
+              <option
+                v-for="option in currencies"
+                :value="option"
+                :key="option.id"
+              >
+                {{ option.name }}
+              </option>
+            </b-select>
+          </client-only>
         </b-field>
       </div>
       <div class="column">
@@ -17,7 +28,6 @@
             v-model="settingsData.email"
             type="email"
             name="email"
-            required
             size="is-small"
           />
         </b-field>
@@ -36,22 +46,12 @@
     <div class="columns">
       <div class="column">
         <b-field :label="$t('table.code')">
-          <b-input
-            v-model="settingsData.code"
-            name="code"
-            required
-            size="is-small"
-          />
+          <b-input v-model="settingsData.code" name="code" size="is-small" />
         </b-field>
       </div>
       <div class="column">
         <b-field :label="$t('table.fiscal')">
-          <b-input
-            v-model="settingsData.nipt"
-            name="nipt"
-            required
-            size="is-small"
-          />
+          <b-input v-model="settingsData.nipt" name="nipt" size="is-small" />
         </b-field>
       </div>
       <div class="column">
@@ -59,7 +59,6 @@
           <b-input
             v-model="settingsData.creation_date"
             name="creation_date"
-            required
             size="is-small"
           />
         </b-field>
@@ -68,18 +67,12 @@
 
     <hr />
     <b-field :label="$t('table.desciption')">
-      <b-input
-        v-model="settingsData.desc"
-        required
-        type="textarea"
-        size="is-small"
-      />
+      <b-input v-model="settingsData.desc" type="textarea" size="is-small" />
     </b-field>
     <b-field :label="$t('table.address')">
       <b-input
         v-model="settingsData.address"
         placeholder="e.g. Partnership proposal"
-        required
         size="is-small"
       />
     </b-field>
@@ -100,18 +93,22 @@ export default {
   name: 'CodeSettings',
   data() {
     return {
-      isLoading: false,
+      isLoading: true,
       date: null,
       settingsData: [],
+      currencies: [],
+      currencyLoaded: true,
     }
   },
   mounted() {
-    this.getSettings()
+    this.getSettings().then(() => {
+      this.getCurrencies()
+    })
   },
   methods: {
     saveCompany() {
       this.$axios
-        .put('/company-data', this.settingsData, {
+        .put('/settings', this.settingsData, {
           headers: {
             Authorization: `Bearer ${this.$auth.strategy.token.get()}`,
             'Content-Type': 'application/json',
@@ -123,9 +120,11 @@ export default {
             queue: false,
           })
         })
+        .then(() => {
+          location.reload()
+        })
     },
     async getSettings() {
-      this.isLoading = true
       await this.$axios
         .get('/settings', {
           headers: {
@@ -136,6 +135,19 @@ export default {
         .then((resp) => {
           this.isLoading = false
           this.settingsData = resp.data
+        })
+    },
+    async getCurrencies() {
+      await this.$axios
+        .get('/currencies', {
+          headers: {
+            Authorization: `Bearer ${this.$auth.strategy.token.get()}`,
+            'Content-Type': 'application/json',
+          },
+        })
+        .then((resp) => {
+          this.currencies = resp.data
+          this.currencyLoaded = false
         })
     },
   },

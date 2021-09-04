@@ -82,6 +82,7 @@
             <td>
               <client-only>
                 <currency-input
+                  :currency="currency"
                   :value="grandNoTax"
                   class="input is-small custom-input"
                   name="grandTotal"
@@ -98,6 +99,7 @@
             <td>
               <client-only>
                 <currency-input
+                  :currency="currency"
                   :value="grandTax"
                   class="input is-small custom-input"
                   name="grandTotal"
@@ -114,6 +116,7 @@
             <td>
               <client-only>
                 <currency-input
+                  :currency="currency"
                   :value="grandTotal"
                   class="input is-small total-input"
                   name="grandTotal"
@@ -171,6 +174,9 @@ export default {
     },
     grandTotal() {
       return this.$store.state.sales.grandTotal
+    },
+    currency() {
+      return this.$store.state.currency
     },
   },
   methods: {

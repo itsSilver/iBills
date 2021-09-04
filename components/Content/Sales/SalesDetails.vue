@@ -37,6 +37,7 @@
         <div>
           <client-only>
             <currency-input
+              :currency="currency"
               :value="grandNoTax"
               class="custom-input is-small"
               disabled
@@ -49,6 +50,7 @@
         <div>
           <client-only>
             <currency-input
+              :currency="currency"
               :value="grandTax"
               class="custom-input is-small"
               disabled
@@ -61,6 +63,7 @@
         <div>
           <client-only>
             <currency-input
+              :currency="currency"
               :value="grandTotal"
               class="custom-input is-small"
               disabled
@@ -89,6 +92,9 @@ export default {
     },
   },
   computed: {
+    currency() {
+      return this.$store.state.currency
+    },
     grandTotal() {
       return this.$store.state.sales.grandTotal
     },

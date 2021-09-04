@@ -55,6 +55,7 @@
               <currency-input
                 v-model="form.cost"
                 class="input is-small"
+                :currency="currency"
                 required
                 :placeholder="
                   $t('messages.placeholder', {
@@ -76,6 +77,7 @@
             <client-only>
               <currency-input
                 v-model="form.cost_tolerance"
+                :currency="currency"
                 ref="cost_tolerance"
                 class="input is-small"
                 :placeholder="
@@ -93,6 +95,7 @@
             <client-only>
               <currency-input
                 v-model="form.sale"
+                :currency="currency"
                 class="input is-small"
                 :placeholder="
                   $t('messages.placeholder', {
@@ -365,6 +368,11 @@ export default {
   mounted() {
     this.getCategories()
     this.getVatRates()
+  },
+  computed: {
+    currency() {
+      return this.$store.state.currency
+    },
   },
   watch: {
     form: {

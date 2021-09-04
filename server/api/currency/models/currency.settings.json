@@ -2,19 +2,20 @@
   "kind": "collectionType",
   "collectionName": "currencies",
   "info": {
-    "name": "currency"
+    "name": "currency",
+    "description": ""
   },
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
     "name": {
       "type": "string"
     },
-    "symbol": {
+    "code": {
       "type": "string"
     }
   }

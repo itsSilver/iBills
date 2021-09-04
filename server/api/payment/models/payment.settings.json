@@ -2,12 +2,13 @@
   "kind": "collectionType",
   "collectionName": "payments",
   "info": {
-    "name": "payment"
+    "name": "payment",
+    "description": ""
   },
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {

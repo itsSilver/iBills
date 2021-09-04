@@ -35,15 +35,14 @@
     "categories_code": {
       "type": "string"
     },
-    "currency": {
-      "type": "string",
-      "default": "€"
-    },
     "starting_balance": {
       "type": "float"
     },
     "sales_code": {
       "type": "string"
+    },
+    "currency": {
+      "model": "currency"
     }
   }
 }

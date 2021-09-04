@@ -51,11 +51,11 @@
               {{ props.row.name }}
             </b-table-column>
             <b-table-column
-              :label="$t('table.symbol')"
-              field="symbol"
+              :label="$t('table.code')"
+              field="code"
               v-slot="props"
             >
-              {{ props.row.symbol }}
+              {{ props.row.code }}
             </b-table-column>
 
             <b-table-column
@@ -159,6 +159,7 @@ export default {
       isCreateModalActive: false,
       updateData: [],
       categoryId: null,
+      isModalActive: false,
     }
   },
   computed: {

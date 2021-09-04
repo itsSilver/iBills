@@ -53,6 +53,7 @@
       <b-table-column :label="$t('table.total')" field="total" v-slot="props">
         <client-only>
           <currency-input
+            :currency="currency"
             :value="props.row.total"
             class="input is-small total-input"
             name="total"
@@ -137,6 +138,11 @@ export default {
         this.$emit('checked-rows', val)
         this.$emit('delete-all', this.deleteAll)
       }
+    },
+  },
+  computed: {
+    currency() {
+      return this.$store.state.currency
     },
   },
   methods: {

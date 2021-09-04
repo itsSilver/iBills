@@ -17,6 +17,7 @@
         <client-only>
           <currency-input
             :value="props.row.price"
+            :currency="currency"
             class="custom-input is-small"
             disabled
             field="price"
@@ -35,6 +36,7 @@
       <b-table-column :label="$t('table.total')" field="total" v-slot="props">
         <client-only>
           <currency-input
+            :currency="currency"
             :value="props.row.total"
             class="custom-input is-small"
             disabled
@@ -142,7 +144,11 @@ export default {
       this.filterExpiration()
     })
   },
-
+  computed: {
+    currency() {
+      return this.$store.state.currency
+    },
+  },
   methods: {
     async getProducts() {
       this.loading = true

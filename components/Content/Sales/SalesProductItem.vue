@@ -36,6 +36,7 @@
       <client-only>
         <currency-input
           v-model="prod.product.sale"
+          :currency="currency"
           class="input is-small"
           name="sale"
           :disabled="disabled"
@@ -76,6 +77,7 @@
       <client-only>
         <currency-input
           :value="totalNoTax"
+          :currency="currency"
           class="input is-small"
           name="totalNoTax"
           disabled
@@ -88,6 +90,7 @@
       }}</label>
       <client-only>
         <currency-input
+          :currency="currency"
           :value="totalTax"
           class="input is-small"
           name="totalTax"
@@ -101,6 +104,7 @@
       }}</label>
       <client-only>
         <currency-input
+          :currency="currency"
           :value="total"
           class="input is-small total-input"
           name="total"
@@ -205,6 +209,9 @@ export default {
       } else {
         false
       }
+    },
+    currency() {
+      return this.$store.state.currency
     },
   },
 }
