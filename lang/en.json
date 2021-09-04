@@ -29,7 +29,8 @@
     "purchaces": "Purchaces",
     "purchases": "Purchases",
     "sales": "Sales",
-    "invoices": "Invoices"
+    "invoices": "Invoices",
+    "currencies": "Currencies"
   },
   "navtop": {
     "create": "Create",
@@ -124,7 +125,8 @@
     "total_doc": "Total Document",
     "total_vat": "Total Vat",
     "total_novat": "Total(Vat Excluded)",
-    "state": "Status"
+    "state": "Status",
+    "symbol": "Symbol"
   },
   "user-nav": {
     "profile": "My Profile",
@@ -273,5 +275,8 @@
       "canceled": "Canceled",
       "confirmed": "Confirmed"
     }
+  },
+  "currency": {
+    "currency": "Currency"
   }
 }

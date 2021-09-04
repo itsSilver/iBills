@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/cashiers",
+      "handler": "cashier.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/cashiers/count",
+      "handler": "cashier.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/cashiers/:id",
+      "handler": "cashier.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/cashiers",
+      "handler": "cashier.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/cashiers/:id",
+      "handler": "cashier.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/cashiers/:id",
+      "handler": "cashier.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

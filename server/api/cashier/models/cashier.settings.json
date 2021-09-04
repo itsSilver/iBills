@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cashiers",
+  "info": {
+    "name": "cashier"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "payment": {
+      "model": "payment"
+    },
+    "currency": {
+      "model": "currency"
+    }
+  }
+}

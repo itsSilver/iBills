@@ -28,7 +28,8 @@
     "stock": "Scorta",
     "purchases": "Acquisti",
     "sales": "Saldi",
-    "invoices": "Fatture"
+    "invoices": "Fatture",
+    "currencies": "Valute"
   },
   "navtop": {
     "create": "Crea",
@@ -123,7 +124,8 @@
     "total_doc": "Documento totale",
     "total_vat": "Iva totale",
     "total_novat": "Totale (Iva Esclusa)",
-    "state": "Stato"
+    "state": "Stato",
+    "symbol": "Simbolo"
   },
   "user-nav": {
     "profile": "Profilo",
@@ -268,5 +270,8 @@
       "canceled": "Annullato",
       "confirmed": "Confermato"
     }
+  },
+  "currency": {
+    "currency": "Valuta"
   }
 }

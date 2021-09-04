@@ -67,22 +67,22 @@ export default {
         ],
         `${this.$t('nav.accounting')}`,
         [
-          {
-            label: `${this.$t('nav.invoices')}`,
-            icon: 'cart',
-            menu: [
-              {
-                to: `/purchases`,
-                label: `${this.$t('nav.purchases')}`,
-                icon: 'cart-plus',
-              },
-              {
-                to: '/sales',
-                label: `${this.$t('nav.sales')}`,
-                icon: 'cart-minus',
-              },
-            ],
-          },
+          // {
+          //   label: `${this.$t('nav.invoices')}`,
+          //   icon: 'cart',
+          //   menu: [
+          //     {
+          //       to: `/purchases`,
+          //       label: `${this.$t('nav.purchases')}`,
+          //       icon: 'cart-plus',
+          //     },
+          //     {
+          //       to: '/sales',
+          //       label: `${this.$t('nav.sales')}`,
+          //       icon: 'cart-minus',
+          //     },
+          //   ],
+          // },
           {
             to: `/purchases`,
             label: `${this.$t('nav.purchases')}`,
@@ -92,6 +92,11 @@ export default {
             to: '/sales',
             label: `${this.$t('nav.sales')}`,
             icon: 'cart-minus',
+          },
+          {
+            to: '/currencies',
+            label: `${this.$t('nav.currencies')}`,
+            icon: 'currency-eur',
           },
         ],
         `${this.$t('nav.catalog')}`,

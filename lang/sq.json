@@ -28,7 +28,8 @@
     "stock": "Stoku",
     "purchases": "Blerjet",
     "sales": "Shitjet",
-    "invoices": "Faturat"
+    "invoices": "Faturat",
+    "currencies": "Valuta"
   },
   "navtop": {
     "create": "Krijo",
@@ -123,7 +124,8 @@
     "total_doc": "Totali dokumentit",
     "total_vat": "Totali TVSH-se",
     "total_novat": "Totali (pa TVSH)",
-    "state": "Statusi"
+    "state": "Statusi",
+    "symbol": "Simboli"
   },
   "user-nav": {
     "profile": "Profili Im",
@@ -268,5 +270,8 @@
       "canceled": "Anuluar",
       "confirmed": "Konfirmuar"
     }
+  },
+  "currency": {
+    "currency": "Monedha"
   }
 }
