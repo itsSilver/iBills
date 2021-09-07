@@ -29,7 +29,9 @@
     "purchases": "Blerjet",
     "sales": "Shitjet",
     "invoices": "Faturat",
-    "currencies": "Valuta"
+    "currencies": "Valuta",
+    "cash-unit": "Llojet e Pagesave",
+    "banks": "Bankat"
   },
   "navtop": {
     "create": "Krijo",
@@ -273,5 +275,8 @@
   },
   "currency": {
     "currency": "Monedha"
+  },
+  "payment": {
+    "payment": "Pagesa"
   }
 }

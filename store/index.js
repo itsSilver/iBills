@@ -80,7 +80,9 @@ const mutations = {
 }
 const getters = {}
 const actions = {}
+const strict = false
 export default {
+  strict,
   state,
   getters,
   mutations,

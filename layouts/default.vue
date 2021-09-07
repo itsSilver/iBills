@@ -94,6 +94,16 @@ export default {
             icon: 'cart-minus',
           },
           {
+            to: '/payments',
+            label: `${this.$t('nav.cash-unit')}`,
+            icon: 'bank',
+          },
+          {
+            to: '/cashiers',
+            label: `${this.$t('nav.banks')}`,
+            icon: 'piggy-bank',
+          },
+          {
             to: '/currencies',
             label: `${this.$t('nav.currencies')}`,
             icon: 'currency-eur',

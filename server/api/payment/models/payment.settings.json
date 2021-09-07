@@ -17,6 +17,9 @@
     },
     "bank": {
       "type": "json"
+    },
+    "currency": {
+      "model": "currency"
     }
   }
 }

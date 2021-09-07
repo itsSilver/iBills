@@ -86,37 +86,37 @@ export default {
     async onSelect(val) {
       this.$store.commit('products/SET_LOAD_PRODUCTS', val)
     },
-    async getStock(val) {
-      await this.$axios
-        .get('/stocks', {
-          params: {
-            product: val.id,
-            warehouse: this.warehouseID,
-          },
-          headers: {
-            Authorization: `Bearer ${this.$auth.strategy.token.get()}`,
-            'Content-Type': 'application/json',
-          },
-        })
-        .then((res) => {
-          const datas = res.data.data
-          if (datas.length !== 0) {
-            const qty = datas[0].qty
-            val.qty = qty
-            this.$store.commit('products/SET_LOAD_PRODUCTS', val)
-          } else {
-            this.$buefy.dialog.confirm({
-              title: `${this.$t('messages.no_stock')}`,
-              message: `${this.$t('messages.no_stock_body')}`,
-              cancelText: `${this.$t('navtop.cancel')}`,
-              confirmText: `${this.$t('navtop.create')}`,
-              type: 'is-success',
-              onConfirm: () =>
-                this.$store.commit('products/SET_LOAD_PRODUCTS', val),
-            })
-          }
-        })
-    },
+    // async getStock(val) {
+    //   await this.$axios
+    //     .get('/stocks', {
+    //       params: {
+    //         product: val.id,
+    //         warehouse: this.warehouseID,
+    //       },
+    //       headers: {
+    //         Authorization: `Bearer ${this.$auth.strategy.token.get()}`,
+    //         'Content-Type': 'application/json',
+    //       },
+    //     })
+    //     .then((res) => {
+    //       const datas = res.data.data
+    //       if (datas.length !== 0) {
+    //         const qty = datas[0].qty
+    //         val.qty = qty
+    //         this.$store.commit('products/SET_LOAD_PRODUCTS', val)
+    //       } else {
+    //         this.$buefy.dialog.confirm({
+    //           title: `${this.$t('messages.no_stock')}`,
+    //           message: `${this.$t('messages.no_stock_body')}`,
+    //           cancelText: `${this.$t('navtop.cancel')}`,
+    //           confirmText: `${this.$t('navtop.create')}`,
+    //           type: 'is-success',
+    //           onConfirm: () =>
+    //             this.$store.commit('products/SET_LOAD_PRODUCTS', val),
+    //         })
+    //       }
+    //     })
+    // },
   },
 }
 </script>

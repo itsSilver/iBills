@@ -4,11 +4,11 @@
       <label for="barcode" class="is-hidden-desktop">{{
         $t('table.barcode')
       }}</label>
-      {{ prod.product.barcode }}
+      {{ product.product.barcode }}
     </td>
     <td>
       <label for="name" class="is-hidden-desktop">{{ $t('table.name') }}</label>
-      {{ prod.product.name }}
+      {{ product.product.name }}
     </td>
     <td style="display: flex; align-items: center">
       <label for="quantity" class="is-hidden-desktop">{{
@@ -18,24 +18,18 @@
         min="0"
         type="number"
         size="is-small"
-        v-model="prod.qty"
+        v-model="product.qty"
         name="quantity"
         required
         ref="quantity"
         :disabled="disabled"
       ></b-input>
-      <b-tooltip size="is-small">
-        <template v-slot:content>
-          <span> Stoku ne magazine : {{ prod.availableQty }} </span>
-        </template>
-        <b-icon icon="barn"> </b-icon>
-      </b-tooltip>
     </td>
     <td>
       <label for="sale" class="is-hidden-desktop">{{ $t('table.sale') }}</label>
       <client-only>
         <currency-input
-          v-model="prod.product.sale"
+          v-model="product.product.sale"
           :currency="currency"
           class="input is-small"
           name="sale"
@@ -52,7 +46,7 @@
         min="0"
         size="is-small"
         type="number"
-        v-model="prod.discount"
+        v-model="product.discount"
         name="discount"
         max="100"
         :disabled="disabled"
@@ -64,7 +58,7 @@
         min="0"
         size="is-small"
         type="number"
-        v-model="prod.product.vat"
+        v-model="product.product.vat"
         name="vatRate"
         max="100"
         :disabled="disabled"
@@ -117,7 +111,7 @@
         <button
           class="button is-danger is-small"
           type="button"
-          @click="trashArray(index)"
+          @click="trashArray(product.product.id)"
           :disabled="disabled"
         >
           <b-icon icon="trash-can" size="is-small" />
@@ -130,33 +124,15 @@
 <script>
 export default {
   name: 'SalesProductItem',
-  props: ['product', 'index'],
+  props: ['product'],
   data() {
     return {
-      prod: null,
       quantity: 0,
       discount: 0,
       expiration: new Date(),
-
-      qtyAvailable: 0,
-      toltipText: 'testing',
     }
   },
-  watch: {
-    product: {
-      immediate: true,
-      handler(val) {
-        this.prod = JSON.parse(JSON.stringify(val))
-        this.prod.index = this.index
-      },
-    },
-    prod: {
-      deep: true,
-      handler(val) {
-        this.$store.commit('products/UPDATE_PRODUCT', this.prod)
-      },
-    },
-  },
+
   methods: {
     trashArray(val) {
       this.$store.commit('products/REMOVE_PRODUCT', val)
@@ -164,43 +140,43 @@ export default {
   },
   computed: {
     total() {
-      let quantity = parseFloat(this.prod.qty)
-      let cost = parseFloat(this.prod.product.sale)
-      let tax = parseFloat(this.prod.product.vat)
-      let discount = parseFloat(this.prod.discount)
+      let quantity = parseFloat(this.product.qty)
+      let cost = parseFloat(this.product.product.sale)
+      let tax = parseFloat(this.product.product.vat)
+      let discount = parseFloat(this.product.discount)
       let taxRate = tax / 100
       let discountRate = discount / 100
       let totalTax = cost * quantity * taxRate
       let totalDiscount = (cost * quantity + totalTax) * discountRate
       if (cost && tax && quantity) {
         var grandWithTax = cost * quantity + totalTax - totalDiscount
-        return (this.prod.total = parseFloat(grandWithTax))
+        return (this.product.total = parseFloat(grandWithTax))
       }
       if (cost && !tax && quantity) {
         var grandWithTax = cost * quantity - totalDiscount
-        return (this.prod.total = parseFloat(grandWithTax))
+        return (this.product.total = parseFloat(grandWithTax))
       }
-      return (this.prod.total = 0)
+      return (this.product.total = 0)
     },
     totalTax() {
-      let cost = parseFloat(this.prod.product.sale)
-      let quantity = parseFloat(this.prod.qty)
+      let cost = parseFloat(this.product.product.sale)
+      let quantity = parseFloat(this.product.qty)
       let tax
-      if (this.prod.tax) {
-        tax = parseFloat(this.prod.tax)
+      if (this.product.tax) {
+        tax = parseFloat(this.product.tax)
       } else {
-        tax = parseFloat(this.prod.product.vat)
+        tax = parseFloat(this.product.product.vat)
       }
       let taxRate = tax / 100
       let totalTax = cost * quantity * taxRate
-      return (this.prod.total_vat = totalTax)
+      return (this.product.total_vat = totalTax)
     },
     totalNoTax() {
-      let cost = parseFloat(this.prod.product.sale)
-      let quantity = parseFloat(this.prod.qty)
+      let cost = parseFloat(this.product.product.sale)
+      let quantity = parseFloat(this.product.qty)
 
       let totalNoTax = cost * quantity
-      return (this.prod.total_novat = totalNoTax)
+      return (this.product.total_novat = totalNoTax)
     },
     disabled() {
       let id = this.$route.params.id

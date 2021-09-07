@@ -13,15 +13,13 @@ const mutations = {
     state.products = payload
   },
   UPDATE_PRODUCT(state, payload) {
-    // let indexID = state.loadProducts.findIndex((item) => {
-    //   return payload.product.id === item.product.id
-    // })
-    // console.log('index', indexID)
-    // let newArray = state.loadProducts.splice(indexID, 1, payload)
-    // console.log('🚀 ~ UPDATE_PRODUCT ~ newArray', newArray)
+    let indexID = state.loadProducts.findIndex((item) => {
+      return payload.product.id === item.product.id
+    })
+    let newArray = state.loadProducts.splice(indexID, 1, payload)
+    state.loadProducts = newArray
 
-    state.loadProducts[payload.index] = JSON.parse(JSON.stringify(payload))
-    // console.log('🚀 ~ UPDATE_PRODUCT ~ state.loadProducts', state.loadProducts)
+    // state.loadProducts[payload.index] = JSON.parse(JSON.stringify(payload))
 
     // let indexID = state.cloneItems.findIndex((item) => {
     //   return payload.index === item.index
@@ -49,40 +47,40 @@ const mutations = {
   },
 
   SET_LOAD_PRODUCTS(state, payload) {
-    // let products = state.loadProducts.findIndex(
-    //   (obj) => obj.product.id == payload.id
-    // )
-    // console.log('products', products)
-    // if (products !== -1) {
-    //   console.log('saas', state.loadProducts[products])
-    //   state.loadProducts[products].qty++
-    //   console.log('all', state.loadProducts)
-    // } else {
-    //   state.loadProducts.push({
-    //     product: payload,
-    //     discount: 0,
-    //     qty: 0,
-    //     total: 0,
-    //   })
-    // }
+    let products = state.loadProducts.findIndex(
+      (obj) => obj.product.id == payload.id
+    )
+    if (products !== -1) {
+      state.loadProducts[products].qty++
+    } else {
+      state.loadProducts.push({
+        product: payload,
+        discount: 0,
+        qty: 1,
+        total: 0,
+        total_vat: 0,
+        total_novat: 0,
+      })
+    }
 
-    state.loadProducts.push({
-      product: payload,
-      discount: 0,
-      qty: 1,
-      total: 0,
-      total_vat: 0,
-      total_novat: 0,
-      availableQty: payload.qty,
-    })
-    state.cloneItems = state.loadProducts
+    // state.loadProducts.push({
+    //   product: payload,
+    //   discount: 0,
+    //   qty: 1,
+    //   total: 0,
+    //   total_vat: 0,
+    //   total_novat: 0,
+    // })
   },
   SET_PROD_LOAD(state, payload) {
     state.loadProducts = payload
   },
 
   REMOVE_PRODUCT(state, payload) {
-    state.loadProducts.splice(payload, 1)
+    let products = state.loadProducts.findIndex(
+      (obj) => obj.product.id == payload
+    )
+    state.loadProducts.splice(products, 1)
   },
   CLEAR_PRODUCTS(state) {
     state.loadProducts = []

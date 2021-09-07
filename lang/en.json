@@ -30,7 +30,9 @@
     "purchases": "Purchases",
     "sales": "Sales",
     "invoices": "Invoices",
-    "currencies": "Currencies"
+    "currencies": "Currencies",
+    "cash-unit": "Payments",
+    "banks": "Banks"
   },
   "navtop": {
     "create": "Create",
@@ -278,5 +280,8 @@
   },
   "currency": {
     "currency": "Currency"
+  },
+  "payment": {
+    "payment": "payment"
   }
 }

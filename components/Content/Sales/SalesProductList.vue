@@ -63,12 +63,8 @@
           </tr>
         </thead>
         <tbody class="custom-table">
-          <template v-for="(product, index) in products">
-            <sales-product-item
-              :product="product"
-              :key="index"
-              :index="index"
-            />
+          <template v-for="product in loadProducts">
+            <sales-product-item :product="product" :key="product.id" />
           </template>
         </tbody>
         <client-only>
@@ -155,7 +151,7 @@ export default {
       immediate: true,
       deep: true,
       handler(val) {
-        this.products = JSON.parse(JSON.stringify(val))
+        console.log('val', val)
         this.calcGrandTotal(val)
         this.calcTaxTotal(val)
         this.calcNoTaxTotal(val)
@@ -181,30 +177,18 @@ export default {
   },
   methods: {
     calcGrandTotal(val) {
-      if (val.length === 0) {
-        this.$store.commit('sales/UPDATE_GRAND_TOTAL', 0)
-        return
-      }
       let sum = val.reduce((a, b) => {
         return a + parseFloat(b.total)
       }, 0)
       this.$store.commit('sales/UPDATE_GRAND_TOTAL', sum)
     },
     calcTaxTotal(sasa) {
-      if (sasa.length === 0) {
-        this.$store.commit('sales/UPDATE_GRAND_TAX', 0)
-        return
-      }
       let taxxx = sasa.reduce((a, b) => {
         return a + parseFloat(b.total_vat)
       }, 0)
       this.$store.commit('sales/UPDATE_GRAND_TAX', taxxx)
     },
     calcNoTaxTotal(dada) {
-      if (dada.length === 0) {
-        this.$store.commit('sales/UPDATE_GRAND_NOTAX', 0)
-        return
-      }
       let notax = dada.reduce((a, b) => {
         return a + parseFloat(b.total_novat)
       }, 0)

@@ -15,13 +15,19 @@ const mutations = {
     state.load = payload
   },
   UPDATE_GRAND_TOTAL(state, payload) {
-    state.grandTotal = payload
+    if (payload) {
+      state.grandTotal = Number(payload)
+    }
   },
   UPDATE_GRAND_TAX(state, payload) {
-    state.grandTax = payload
+    if (payload) {
+      state.grandTax = Number(payload)
+    }
   },
   UPDATE_GRAND_NOTAX(state, payload) {
-    state.grandNoTax = payload
+    if (payload) {
+      state.grandNoTax = Number(payload)
+    }
   },
 }
 const getters = {}

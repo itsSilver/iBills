@@ -29,7 +29,9 @@
     "purchases": "Acquisti",
     "sales": "Saldi",
     "invoices": "Fatture",
-    "currencies": "Valute"
+    "currencies": "Valute",
+    "cash-unit": "Pagamenti",
+    "banks": "Banche"
   },
   "navtop": {
     "create": "Crea",
@@ -273,5 +275,8 @@
   },
   "currency": {
     "currency": "Valuta"
+  },
+  "payment": {
+    "payment": "pagamento"
   }
 }
