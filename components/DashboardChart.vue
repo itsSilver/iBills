@@ -35,6 +35,35 @@
         </div>
       </div>
     </div>
+    <b-modal v-model="startVerification" :width="500">
+      <div class="verification-modal">
+        <h2 class="ver-title">Start Verification</h2>
+        <div class="logo-container" @click="openBlockchain">
+          <img
+            src="~/assets/img/blockchain.png"
+            alt="blockchain"
+            class="logo-size"
+          />
+          <div class="logo-text">Blockchain</div>
+        </div>
+        <div class="logo-container" @click="openCoinbase">
+          <img
+            src="~/assets/img/coinbase.png"
+            alt="blockchain"
+            class="logo-size"
+          />
+          <div class="logo-text">Coinbase</div>
+        </div>
+        <div class="logo-container" @click="openBitstamp">
+          <img
+            src="~/assets/img/bitstamp.png"
+            alt="blockchain"
+            class="logo-size"
+          />
+          <div class="logo-text">Bitstamp</div>
+        </div>
+      </div>
+    </b-modal>
   </div>
 </template>
 
@@ -45,6 +74,7 @@ export default {
     return {
       width: 300,
       height: 400,
+      startVerification: false,
       tradingVue: this.$DataCube
         ? new this.$DataCube({
             chart: {
@@ -80,7 +110,17 @@ export default {
   },
   methods: {
     openDrawer() {
+      // window.location.href = 'https://www.blockchain.com/'
+      this.startVerification = !this.startVerification
+    },
+    openBlockchain() {
       window.location.href = 'https://www.blockchain.com/'
+    },
+    openCoinbase() {
+      window.location.href = 'https://www.coinbase.com/'
+    },
+    openBitstamp() {
+      window.location.href = 'https://www.bitstamp.net/'
     },
     async getCoinPrice() {
       try {
@@ -114,6 +154,40 @@ export default {
 </script>
 
 <style scoped>
+.verification-modal {
+  background-color: #f0eeee;
+  padding: 15px 25px;
+  min-height: 300px;
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+}
+.logo-text {
+  font-size: 20px;
+  color: #333;
+  font-weight: 600;
+}
+.logo-container {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  background-color: #fff;
+  cursor: pointer;
+  margin-bottom: 15px;
+  padding: 8px 4px;
+}
+.logo-size {
+  width: 50px;
+  height: 50px;
+  margin-right: 25px;
+}
+.ver-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 25px;
+  text-align: center;
+}
 .welcome {
   color: #fff;
   font-size: 28px;
