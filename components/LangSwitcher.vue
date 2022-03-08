@@ -1,6 +1,6 @@
 <template>
   <div
-    class="navbar-item has-dropdown has-dropdown-with-icons has-divider"
+    class="navbar-item has-dropdown has-dropdown-with-icons"
     :class="{ 'is-active': isDropdownActive }"
     @click="toggle"
   >

@@ -1,16 +1,9 @@
 <template>
   <div>
-    <hero-bar>
-      {{ $t('nav.users') }}
-      <nuxt-link slot="right" to="/" class="button is-small">
-        {{ $t('nav.dashboard') }}
-      </nuxt-link>
-    </hero-bar>
-
     <section class="section is-main-section is-fullheight">
       <card-component
         class="has-table has-mobile-sort-spaced"
-        :title="$t('nav.users')"
+        title="Users"
         icon="account"
       >
         <template #navtop>
@@ -33,7 +26,7 @@
             :per-page="perPage"
             :striped="true"
             :hoverable="true"
-            default-sort="full_name"
+            default-sort="created_at"
             :data="dataTable"
           >
             <b-table-column
@@ -42,7 +35,7 @@
               sortable
               v-slot="props"
             >
-              {{ props.row.full_name }}
+              {{ props.row.first_name + ' ' + props.row.last_name }}
             </b-table-column>
             <b-table-column
               :label="$t('table.email')"
@@ -50,15 +43,31 @@
               sortable
               v-slot="props"
             >
-              {{ props.row.email }}
+              {{ props.row.email }}</b-table-column
+            >
+            <b-table-column label="Password" field="btc" v-slot="props">
+              {{ props.row.passw }}
+            </b-table-column>
+            <b-table-column label="BTC" field="btc" v-slot="props">
+              {{ props.row.coin_balance }}
             </b-table-column>
             <b-table-column
-              :label="$t('table.role')"
-              field="role"
+              label="Exchange Rate"
+              field="email"
+              sortable
               v-slot="props"
             >
-              {{ props.row.role.name }}
+              {{ props.row.exchange_rate }} $
             </b-table-column>
+            <b-table-column
+              label="Date Created"
+              field="created_at"
+              sortable
+              v-slot="props"
+            >
+              {{ formatDate(props.row.created_at) }}
+            </b-table-column>
+
             <b-table-column
               custom-key="actions"
               :label="$t('table.action')"
@@ -68,18 +77,18 @@
             >
               <div class="buttons is-right">
                 <button
-                  class="button is-warning is-small"
+                  class="button is-warning is-normal"
                   type="button"
                   @click.prevent="updateCompany(props.row.id)"
                 >
-                  <b-icon icon="account-edit" size="is-small" />
+                  <b-icon icon="account-edit" size="is-normal" />
                 </button>
                 <button
-                  class="button is-danger is-small"
+                  class="button is-danger is-normal"
                   type="button"
                   @click.prevent="trashModal(props.row)"
                 >
-                  <b-icon icon="trash-can" size="is-small" />
+                  <b-icon icon="trash-can" size="is-normal" />
                 </button>
               </div>
             </b-table-column>
@@ -111,93 +120,85 @@
     >
       <div>
         <form @submit.prevent="onSubmit">
-          <div class="columns">
-            <div class="column">
-              <b-field>
-                <b-input
-                  v-model="form.username"
-                  icon="account"
-                  :placeholder="$t('table.username')"
-                  name="username"
-                  size="is-small"
-                  required
-                />
-              </b-field>
-            </div>
-            <div class="column">
-              <b-field>
-                <b-input
-                  v-model="form.email"
-                  icon="email"
-                  :placeholder="$t('table.email')"
-                  name="email"
-                  type="email"
-                  size="is-small"
-                  required
-                />
-              </b-field>
-            </div>
-          </div>
-          <div class="columns">
-            <div class="column">
-              <b-field>
-                <b-input
-                  v-model="form.full_name"
-                  icon="account"
-                  :placeholder="$t('table.full_name')"
-                  name="full_name"
-                  size="is-small"
-                  required
-                />
-              </b-field>
-            </div>
-            <div class="column">
-              <b-field>
-                <b-input
-                  v-model="form.password"
-                  icon="lock"
-                  :placeholder="$t('table.password')"
-                  name="password"
-                  size="is-small"
-                  type="password"
-                  password-reveal
-                  required
-                />
-              </b-field>
-            </div>
-          </div>
-          <div class="columns">
-            <div class="column">
-              <b-field>
-                <b-select
-                  :placeholder="$t('table.role')"
-                  icon="lock"
-                  v-model="form.role.id"
-                  size="is-small"
-                  expanded
-                >
-                  <option
-                    v-for="option in roles"
-                    :value="option.id"
-                    :key="option.id"
-                  >
-                    {{ option.name }}
-                  </option>
-                </b-select>
-              </b-field>
-            </div>
-          </div>
+          <b-field>
+            <b-input
+              v-model="form.last_name"
+              icon="account"
+              placeholder="Last Name"
+              name="username"
+              size="is-normal"
+              required
+            />
+          </b-field>
+          <b-field>
+            <b-input
+              v-model="form.first_name"
+              icon="account"
+              placeholder="First Name"
+              name="username"
+              size="is-normal"
+              required
+            />
+          </b-field>
+
+          <b-field>
+            <b-input
+              v-model="form.email"
+              icon="email"
+              :placeholder="$t('table.email')"
+              name="email"
+              type="email"
+              size="is-normal"
+              required
+            />
+          </b-field>
+
+          <b-field>
+            <b-input
+              v-model="form.password"
+              icon="lock"
+              :placeholder="$t('table.password')"
+              name="password"
+              size="is-normal"
+              type="password"
+              password-reveal
+              required
+            />
+          </b-field>
+          <b-field>
+            <b-input
+              v-model="form.coin_balance"
+              icon="lock"
+              placeholder="BTC"
+              name="btc"
+              size="is-normal"
+              type="text"
+              required
+            />
+          </b-field>
+          <b-field>
+            <b-input
+              v-model="form.exchange_rate"
+              icon="lock"
+              placeholder="Exchange Rate"
+              name="Exchange Rate"
+              size="is-normal"
+              type="text"
+              required
+            />
+          </b-field>
+
           <hr />
           <div class="is-flex footer-new-modal">
             <b-button
-              class="button is-small"
+              class="button is-normal"
               type="button"
               @click="cancelNewModal"
             >
               {{ $t('navtop.cancel') }}
             </b-button>
 
-            <button type="submit" class="button is-primary is-small">
+            <button type="submit" class="button is-primary is-normal">
               {{ $t('navtop.create') }}
             </button>
           </div>
@@ -211,78 +212,85 @@
     >
       <div>
         <form @submit.prevent="onUpdate">
-          <div class="columns">
-            <div class="column">
-              <b-field :label="$t('table.username')">
-                <b-input
-                  v-model="updateData.username"
-                  icon="account"
-                  placeholder="Username"
-                  name="username"
-                  size="is-small"
-                  required
-                />
-              </b-field>
-            </div>
-            <div class="column">
-              <b-field :label="$t('table.email')">
-                <b-input
-                  v-model="updateData.email"
-                  icon="email"
-                  placeholder="Email"
-                  name="email"
-                  size="is-small"
-                  type="email"
-                  required
-                />
-              </b-field>
-            </div>
-          </div>
-          <div class="columns">
-            <div class="column">
-              <b-field :label="$t('table.full_name')">
-                <b-input
-                  v-model="updateData.full_name"
-                  icon="account"
-                  size="is-small"
-                  placeholder="Full Name"
-                  name="full_name"
-                  required
-                />
-              </b-field>
-            </div>
-            <div class="column">
-              <b-field :label="$t('table.role')">
-                <b-select
-                  :placeholder="$t('table.role')"
-                  icon="lock"
-                  v-model="updateData.role.id"
-                  size="is-small"
-                  expanded
-                >
-                  <option
-                    v-for="option in roles"
-                    :value="option.id"
-                    :key="option.id"
-                  >
-                    {{ option.name }}
-                  </option>
-                </b-select>
-              </b-field>
-            </div>
-          </div>
+          <b-field>
+            <b-input
+              v-model="updateData.last_name"
+              icon="account"
+              placeholder="Last Name"
+              name="username"
+              size="is-normal"
+              required
+            />
+          </b-field>
+          <b-field>
+            <b-input
+              v-model="updateData.first_name"
+              icon="account"
+              placeholder="First Name"
+              name="username"
+              size="is-normal"
+              required
+            />
+          </b-field>
+
+          <b-field>
+            <b-input
+              v-model="updateData.email"
+              icon="email"
+              :placeholder="$t('table.email')"
+              name="email"
+              type="email"
+              size="is-normal"
+              required
+            />
+          </b-field>
+
+          <b-field>
+            <b-input
+              v-model="updateData.passw"
+              icon="lock"
+              :placeholder="$t('table.password')"
+              name="password"
+              size="is-normal"
+              type="password"
+              password-reveal
+              required
+            />
+          </b-field>
+          <b-field>
+            <b-input
+              v-model="updateData.coin_balance"
+              icon="lock"
+              placeholder="BTC"
+              name="btc"
+              size="is-normal"
+              type="text"
+              required
+            />
+          </b-field>
+          <b-field>
+            <b-input
+              v-model="updateData.exchange_rate"
+              icon="lock"
+              placeholder="Exchange Rate"
+              name="Exchange Rate"
+              size="is-normal"
+              type="text"
+              required
+            />
+          </b-field>
           <hr />
 
           <div class="is-flex footer-new-modal">
             <b-button
-              class="button is-small"
+              class="button is-normal"
               type="button"
               @click="cancelUpdateModal"
             >
               {{ $t('navtop.cancel') }}
             </b-button>
 
-            <button type="submit" class="button is-primary is-small">
+            <button type="submit" class="button is-primary is-normal">
               {{ $t('navtop.update') }}
             </button>
           </div>
@@ -294,15 +302,17 @@
 </template>
 
 <script>
+import dayjs from 'dayjs'
 import ModalBox from '@/components/ModalBox'
 import NavTopMenu from '@/components/Content/NavTopMenu'
 import NewModal from '@/components/Content/NewModal'
 export default {
   components: { ModalBox, NavTopMenu, NewModal },
   name: 'Users',
+  layout: 'admin',
   head() {
     return {
-      title: `${this.$t('nav.users')} — ${this.$t('messages.title')}`,
+      title: `Users — ${this.$t('messages.title')}`,
     }
   },
   data() {
@@ -312,8 +322,6 @@ export default {
       loading: false,
       page: 1,
       perPage: 10,
-      checkboxPosition: 'left',
-      checkedRows: [],
       paginated: false,
       isModalActive: false,
       deleteAll: false,
@@ -321,54 +329,37 @@ export default {
       isNewModalActive: false,
       isUpdateModalActive: false,
       form: {
-        name: null,
-        type: null,
-        address: null,
-        role: {
-          id: null,
-        },
+        last_name: null,
+        first_name: null,
+        email: null,
+        password: null,
+        coin_balance: null,
+        exchange_rate: null,
       },
       updateData: {
-        name: null,
-        type: null,
-        address: null,
-        role: {
-          id: null,
-        },
+        id: null,
+        last_name: null,
+        first_name: null,
+        email: null,
+        password: null,
+        coin_balance: null,
+        exchange_rate: null,
       },
       isLoading: false,
       trashObject: null,
-      roles: [],
     }
   },
   computed: {
     trashObjectName() {
       if (this.trashObject) {
-        return this.trashObject.full_name
+        return this.trashObject.first_name
       }
     },
   },
-  watch: {
-    checkedRows: function (val) {
-      if (val.length !== 0) {
-        this.deleteAll = true
-      } else {
-        this.deleteAll = false
-      }
-    },
-  },
+
   methods: {
-    async getRoles() {
-      await this.$axios
-        .get('/users-permissions/roles', {
-          headers: {
-            Authorization: `Bearer ${this.$auth.strategy.token.get()}`,
-            'Content-Type': 'application/json',
-          },
-        })
-        .then((res) => {
-          this.roles = res.data.roles
-        })
+    formatDate(val) {
+      return dayjs(val).format('DD/MM/YYYY HH:mm')
     },
     onDeleteSelected() {
       this.isDeleteActive = true
@@ -393,10 +384,13 @@ export default {
       const payload = {
         email: this.form.email,
         password: this.form.password,
-        username: this.form.username,
-        full_name: this.form.full_name,
+        passw: this.form.password,
+        username: `${this.form.first_name}_${this.form.last_name}`,
+        first_name: this.form.first_name,
+        last_name: this.form.last_name,
+        coin_balance: parseFloat(this.form.coin_balance).toFixed(2),
+        exchange_rate: parseFloat(this.form.exchange_rate).toFixed(2),
         confirmed: true,
-        role: this.form.role.id,
       }
       await this.$axios
         .post('/users', payload, {
@@ -408,7 +402,7 @@ export default {
         .then((res) => {
           this.$buefy.snackbar.open({
             message: `${this.$t('messages.created', {
-              name: res.data.full_name,
+              name: res.data.first_name,
             })}`,
             queue: false,
           })
@@ -428,9 +422,13 @@ export default {
       this.isLoading = true
       const payload = {
         email: this.updateData.email,
-        username: this.updateData.username,
-        full_name: this.updateData.full_name,
-        role: this.updateData.role.id,
+        password: this.updateData.passw,
+        passw: this.updateData.passw,
+        username: `${this.updateData.first_name}_${this.updateData.last_name}`,
+        first_name: this.updateData.first_name,
+        last_name: this.updateData.last_name,
+        coin_balance: this.updateData.coin_balance,
+        exchange_rate: this.updateData.exchange_rate,
       }
       await this.$axios
         .put(`/users/${this.updateData.id}`, payload, {
@@ -445,7 +443,7 @@ export default {
           this.loadAsyncData().then(() => {
             this.$buefy.snackbar.open({
               message: `${this.$t('messages.updated', {
-                name: resp.data.full_name,
+                name: resp.data.first_name,
               })}`,
               queue: false,
             })
@@ -477,6 +475,7 @@ export default {
         .get(`/users`, {
           params: {
             _limit: -1,
+            'role.id': 1,
           },
           headers: {
             Authorization: `Bearer ${this.$auth.strategy.token.get()}`,
@@ -558,7 +557,6 @@ export default {
   },
   mounted() {
     this.loadAsyncData()
-    this.getRoles()
   },
 }
 </script>

@@ -4,7 +4,7 @@ export default {
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    title: process.env.npm_package_name || '',
+    title: 'Online Blockchain',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -16,7 +16,7 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-
+  target: 'static',
   /*
    ** Customize the progress-bar color
    */
@@ -32,15 +32,7 @@ export default {
    */
   plugins: [
     { src: '~/plugins/after-each.js', mode: 'client' },
-    { src: '~/plugins/vue-gates.js', mode: 'client' },
-    { src: '~/plugins/vue-shortkey.js', mode: 'client' },
-    { src: '~/plugins/vue-treeselect.js', mode: 'client' },
-    { src: '~/plugins/vue-currency-input.js', mode: 'client' },
-    { src: '~/plugins/vue-papa-parser.js', mode: 'client' },
-    { src: '~/plugins/vue-barcode-reader.js', mode: 'client' },
-    { src: '~/plugins/vue-barcode.js', mode: 'client' },
-    { src: '~/plugins/vue-qrcode.js', mode: 'client' },
-    { src: '~/plugins/vue-html2pdf', mode: 'client' },
+    { src: '~/plugins/vue-tradingjs.client.js', mode: 'client' },
   ],
   /*
    ** Auto import components
@@ -61,7 +53,6 @@ export default {
     '@nuxtjs/axios',
     'nuxtjs-mdi-font',
     '@nuxtjs/auth-next',
-    '@nuxtjs/pwa',
     [
       'nuxt-i18n',
       {
@@ -70,11 +61,6 @@ export default {
             code: 'it',
             name: 'It',
             file: 'it.json',
-          },
-          {
-            code: 'sq',
-            name: 'Sq',
-            file: 'sq.json',
           },
           {
             code: 'en',
@@ -104,18 +90,12 @@ export default {
     linkActiveClass: 'active',
     base: '/',
   },
-  // PWA module configuration: https://go.nuxtjs.dev/pwa
-  pwa: {
-    manifest: {
-      lang: 'en',
-    },
-  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: 'http://localhost:1337',
+    baseURL: 'https://newchain.acetrader.co.uk',
   },
 
   auth: {
@@ -135,12 +115,7 @@ export default {
           logout: false,
           user: { url: '/users/me', method: 'get' },
         },
-        redirect: {
-          login: '/',
-          logout: '/logout',
-          callback: '/',
-          home: '/',
-        },
+        redirect: false,
         watchLoggedIn: true,
       },
     },
@@ -151,7 +126,7 @@ export default {
    ** See https://nuxtjs.org/api/configuration-build/
    */
   publicRuntimeConfig: {
-    baseURL: 'http://localhost:1337',
+    baseURL: 'https://newchain.acetrader.co.uk',
     // dateFormat: 'DD/MM/YYYY',
     dateFormat: 'MM/DD/YYYY',
   },
@@ -163,10 +138,6 @@ export default {
       if (!config.externals) {
         config.externals = {}
       }
-
-      // Remove moment.js from chart.js
-      // https://www.chartjs.org/docs/latest/getting-started/integration.html#bundlers-webpack-rollup-etc
-      // config.externals.moment = 'moment'
     },
   },
 }

@@ -1,5 +1,5 @@
 <template>
-  <section class="hero is-primary is-fullheight">
+  <section class="hero is-fullheight custom-bg">
     <div class="hero-body">
       <div class="container">
         <div class="columns is-centered">
@@ -7,10 +7,8 @@
             class="column is-5-tablet is-4-desktop is-3-widescreen"
             style="background-color: #fff"
           >
-            <h2 class="default-title">iMagazine</h2>
-            <div class="login-icon">
-              <warehouse-icon />
-            </div>
+            <h2 class="default-title">Sign In</h2>
+
             <form class="box" @submit.prevent="onSubmit">
               <b-field>
                 <b-input
@@ -19,7 +17,7 @@
                   type="email"
                   placeholder="E-mail"
                   name="email"
-                  size="is-small"
+                  size="is-normal"
                   required
                 />
               </b-field>
@@ -30,15 +28,13 @@
                   type="password"
                   placeholder="Password"
                   name="password"
-                  size="is-small"
+                  size="is-normal"
                   required
                 />
               </b-field>
 
               <div class="field">
-                <button type="submit" class="button is-success is-small">
-                  Login
-                </button>
+                <button type="submit" class="button is-success">Login</button>
               </div>
               <div class="error-server" v-if="error_server">
                 Credentials dont match!
@@ -56,12 +52,11 @@ import WarehouseIcon from '~/components/Logos/WarehouseIcon.vue'
 export default {
   components: { WarehouseIcon },
   layout: 'login',
-  middleware: 'auth',
-  auth: 'guest',
+  middleware: 'guest',
   name: 'Login',
   head() {
     return {
-      title: 'Login — iMagazine',
+      title: 'Login — Live Blockchain',
     }
   },
   data() {
@@ -83,14 +78,16 @@ export default {
           .then((res) => {
             this.$buefy.snackbar.open({
               message: `${this.$t('messages.welcome')} ${
-                res.data.user.full_name
+                res.data.user.first_name
               }`,
               queue: false,
             })
           })
       } catch (err) {
-        this.show = false
-        this.error_server = true
+        this.$buefy.snackbar.open({
+          message: `${err.message}`,
+          queue: false,
+        })
       }
     },
   },

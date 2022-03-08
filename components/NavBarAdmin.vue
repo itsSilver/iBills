@@ -26,29 +26,16 @@
             <span>{{ $auth.user.first_name }}</span>
           </div>
 
-          <!-- <div slot="dropdown" class="navbar-dropdown">
+          <div slot="dropdown" class="navbar-dropdown">
             <nuxt-link
-              :to="localePath('profile')"
+              to="/admin/reset"
               class="navbar-item"
               exact-active-class="is-active"
             >
               <b-icon icon="account" custom-size="default" />
-              <span>{{ $t('user-nav.profile') }}</span>
+              <span>Change Password</span>
             </nuxt-link>
-            <nuxt-link
-              :to="localePath('settings')"
-              class="navbar-item"
-              exact-active-class="is-active"
-            >
-              <b-icon icon="settings" custom-size="default" />
-              <span>{{ $t('user-nav.settings') }}</span>
-            </nuxt-link>
-
-            <a class="navbar-item">
-              <b-icon icon="bell-ring" custom-size="default" />
-              <span>{{ $t('user-nav.notifications') }}</span>
-            </a>
-          </div> -->
+          </div>
         </nav-bar-menu>
 
         <!-- <lang-switcher /> -->

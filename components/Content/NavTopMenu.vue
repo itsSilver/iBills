@@ -5,7 +5,6 @@
       class="button is-primary is-small"
       type="button"
       @click="$emit('new-document')"
-      v-role="'admin'"
     >
       <b-icon icon="plus-thick" size="is-small" />
       <span> {{ $t('navtop.create') }} </span>
@@ -15,7 +14,6 @@
       type="button"
       v-if="deleteAll"
       @click="$emit('delete-selected')"
-      v-role="'admin'"
     >
       <b-icon icon="trash-can" size="is-small" />
       <span> {{ $t('navtop.delete_selected') }} </span>

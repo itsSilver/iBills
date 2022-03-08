@@ -15,6 +15,7 @@ const state = () => ({
   // Company Id
   company_id: null,
   currency: null,
+  user: {},
 })
 
 const mutations = {
@@ -70,16 +71,32 @@ const mutations = {
 
     state.isAsideDescExpanded = isShow
   },
-
-  SET_COMPANY_ID(state, payload) {
-    state.company_id = payload
-  },
-  SET_CURRENCY(state, payload) {
-    state.currency = payload
+  SET_USER(state, user) {
+    state.user = user
   },
 }
-const getters = {}
-const actions = {}
+const getters = {
+  getUser(state) {
+    return state.user
+  },
+}
+const actions = {
+  async onAuthStateChangedAction(state, { authUser, claims }) {
+    if (!authUser) {
+      // claims = null
+      state.commit('SET_USER', null)
+      this.$router.push({ path: '/login' })
+      // Perform logout operations
+    } else {
+      // Do something with the authUser and the claims object...
+      const { uid, email } = authUser
+      state.commit('SET_USER', {
+        uid,
+        email,
+      })
+    }
+  },
+}
 const strict = false
 export default {
   strict,

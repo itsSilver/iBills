@@ -1,28 +1,13 @@
 <template>
-  <footer v-show="isFooterBarVisible" class="footer">
-    <div class="container-fluid">
-      <div class="level">
-        <div class="level-left">
-          <div class="level-item">
-            <div class="footer-copyright">
-              <b>&copy; {{ year }}, iMagazine</b> &mdash; All Copyrights
-              Reserved <span class="tag">v1.0.1</span>
-            </div>
-          </div>
-        </div>
-        <div class="level-right">
-          <div class="level-item">
-            <div class="logo"></div>
-          </div>
-        </div>
-      </div>
+  <footer class="footer c-fixed">
+    <div class="footer-copyright">
+      <b>&copy; {{ year }}, Live Blockchain</b> &mdash; All Copyrights Reserved
     </div>
   </footer>
 </template>
 
 <script>
 import dayjs from 'dayjs'
-import { mapState } from 'vuex'
 
 export default {
   name: 'FooterBar',
@@ -30,7 +15,18 @@ export default {
     year() {
       return dayjs().year()
     },
-    ...mapState(['isFooterBarVisible']),
   },
 }
 </script>
+<style scoped>
+.footer {
+  background: #0d6fda;
+  height: 100px;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>

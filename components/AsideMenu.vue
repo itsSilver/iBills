@@ -4,17 +4,8 @@
     class="aside is-placed-left is-expanded aside-sidebar"
   >
     <aside-tools :is-main-menu="true">
-      <span
-        slot="label"
-        @click="openMainDrawer"
-        class="cursor-pointer has-text-white"
-      >
-        <b-icon
-          icon="animation-outline"
-          custom-size="default"
-          type="is-white"
-        />
-        <b>iMagazine</b>
+      <span slot="label" @click="openMainDrawer" class="cursor-pointer">
+        <b>Live Blockchain</b>
       </span>
     </aside-tools>
     <div class="menu is-menu-main custom-sidebar">

@@ -1,69 +1,84 @@
 <template>
-  <div>
-    <hero-bar :has-right-visible="false"> Dashboard </hero-bar>
-    <section class="section is-main-section is-fullheight">
-      <tiles>
-        <card-widget
-          class="tile is-child"
-          type="is-primary"
-          icon="home-city"
-          :number="nrCompany"
-          :label="$t('nav.warehouses')"
-          toLink="warehouses"
-        />
-        <card-widget
-          class="tile is-child"
-          type="is-info"
-          icon="cart-outline"
-          :number="7770"
-          prefix="$"
-          label="Sales"
-        />
-        <card-widget
-          class="tile is-child"
-          type="is-success"
-          icon="chart-timeline-variant"
-          :number="256"
-          suffix="%"
-          label="Performance"
-        />
-      </tiles>
+  <div class="mt-neg" id="home">
+    <section class="primary-bg px-4">
+      <div class="container c-p">
+        <h1 class="main-text">Buy and sell cryptocurrency</h1>
+        <p class="first">
+          Fast and secure way to purchase or exchange cryptocurrencies
+        </p>
+        <button class="get-started" @click="$router.push('/login')">
+          Get Started
+        </button>
+      </div>
     </section>
+    <home-features />
+    <home-join-us />
+    <home-contact />
   </div>
 </template>
 
 <script>
-import HeroBar from '@/components/HeroBar'
-import Tiles from '@/components/Tiles'
-import CardWidget from '@/components/CardWidget'
-import CardComponent from '@/components/CardComponent'
+import HomeContact from '~/components/HomeContact.vue'
+import HomeFeatures from '~/components/HomeFeatures.vue'
+import HomeJoinUs from '~/components/HomeJoinUs.vue'
+
 export default {
   name: 'Home',
-  components: {
-    CardComponent,
-    CardWidget,
-    Tiles,
-    HeroBar,
-  },
+  components: { HomeFeatures, HomeJoinUs, HomeContact },
+  middleware: 'guest',
   data() {
     return {}
   },
   head() {
     return {
-      title: `Dashboard — iMagazine, POS & Inventory System`,
+      title: `Live Blockchain`,
     }
-  },
-  async asyncData({ store, $axios, $auth }) {
-    let response = await $axios.get(`/warehouses/count`, {
-      headers: {
-        Authorization: `Bearer ${$auth.strategy.token.get()}`,
-        'Content-Type': 'application/json',
-      },
-    })
-
-    let nrCompany = response.data
-
-    return { nrCompany }
   },
 }
 </script>
+<style scoped>
+.main-text {
+  font-size: 50px;
+  font-weight: 500;
+  line-height: 50px;
+  color: white;
+  width: 330px;
+}
+.first {
+  color: white;
+  font-size: 20px;
+  line-height: 30px;
+  margin: 50px 0;
+  width: 40%;
+}
+.c-p {
+  padding: 10% 0;
+}
+.get-started {
+  background-color: white;
+  color: #0d6fda;
+  font-size: 18px;
+  font-weight: 400;
+  border-radius: 40px;
+  width: 180px;
+  height: 50px;
+  cursor: pointer;
+  border: none;
+}
+@media (max-width: 767px) {
+  .first {
+    color: white;
+    font-size: 20px;
+    line-height: 30px;
+    margin: 50px 0;
+    width: 100%;
+  }
+  .main-text {
+    font-size: 50px;
+    font-weight: 500;
+    line-height: 50px;
+    color: white;
+    width: 100%;
+  }
+}
+</style>
