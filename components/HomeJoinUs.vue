@@ -4,8 +4,8 @@
     <div class="line"><div class="inside"></div></div>
     <h2 class="secondary">Create your cryptocurrency portfolio today</h2>
     <p class="third">
-      Live Blockchain has a variety of features that make it the best place to
-      start trading
+      Blockchain Explorer has a variety of features that make it the best place
+      to start trading
     </p>
     <div class="columns mx-auto pt-4">
       <div class="column is-one-third">
@@ -59,7 +59,7 @@ export default {}
 
 <style scoped>
 .header {
-  color: #0d6fda;
+  color: #121d33;
   text-align: center;
   font-size: 25px;
   line-height: 100%;

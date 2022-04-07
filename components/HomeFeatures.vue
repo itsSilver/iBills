@@ -4,7 +4,7 @@
     <div class="line"><div class="inside"></div></div>
     <h2 class="secondary">The most trusted cryptocurrency platform</h2>
     <p class="third">
-      Here are a few reasons why you should choose Live Blockchain.
+      Here are a few reasons why you should choose Blockchain Explorer.
     </p>
     <div class="columns mx-auto pt-4">
       <div class="column">
@@ -46,7 +46,7 @@ export default {}
 
 <style scoped>
 .header {
-  color: #0d6fda;
+  color: #121d33;
   text-align: center;
   font-size: 25px;
   line-height: 100%;

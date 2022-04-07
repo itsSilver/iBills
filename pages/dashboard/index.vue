@@ -19,19 +19,19 @@ export default {
   },
   head() {
     return {
-      title: `Dashboard — Live Blockchain`,
+      title: `Dashboard — Blockchain Explorer`,
     }
   },
 }
 </script>
 <style scoped>
 .c-header {
-  background-color: #3d4dd7;
+  background-color: #121d33;
   padding: 2rem 1rem;
   height: 350px;
 }
 .dashboard-chart {
-  margin-top: -220px;
+  margin-top: -200px;
   padding-bottom: 300px;
 }
 </style>

@@ -3,10 +3,10 @@
     v-show="isNavBarVisible"
     id="navbar-main-2"
     class="navbar is-fixed-top nav-space"
-    style="background-color: #0d6fda"
+    style="background-color: rgb(18, 29, 51)"
   >
     <div class="navbar-brand custom-logo" @click="$router.push('/')">
-      Live Blockchain
+      Blockchain Explorer
     </div>
     <div class="menu-list is-hidden-mobile">
       <a href="#home">Home</a>
@@ -107,7 +107,7 @@ export default {
   width: 120px;
   height: 40px;
   background-color: white;
-  color: #0d6fda;
+  color: #121d33;
   font-size: 18px;
   font-weight: 400;
   border-radius: 40px;

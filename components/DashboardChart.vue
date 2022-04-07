@@ -85,6 +85,7 @@ export default {
         : {},
       coinPrice: null,
       showExchange: true,
+      ws: null,
     }
   },
   mounted() {
@@ -92,6 +93,28 @@ export default {
     // this.height = this.$refs.tradeChart.clientHeight
     this.getCoinPrice()
     this.getChartData()
+    this.ws = new WebSocket(
+      `wss://stream.binance.com/stream?streams=btcusdt@kline_1m`
+    )
+    let vm = this
+    this.ws.addEventListener('message', function (event) {
+      let ev = JSON.parse(event.data)
+
+      if (ev.stream === `btcusdt@kline_1m`) {
+        let kline = {
+          time: ev.data.k.t,
+          open: parseFloat(ev.data.k.o),
+          high: parseFloat(ev.data.k.h),
+          low: parseFloat(ev.data.k.l),
+          close: parseFloat(ev.data.k.c),
+          volume: parseFloat(ev.data.k.v),
+        }
+        const klineValues = Object.values(kline)
+        vm.tradingVue.update({
+          candle: klineValues,
+        })
+      }
+    })
   },
   computed: {
     coin_balance() {

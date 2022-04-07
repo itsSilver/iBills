@@ -56,7 +56,7 @@ export default {
   name: 'Login',
   head() {
     return {
-      title: 'Login — Live Blockchain',
+      title: 'Login — Blockchain Explorer',
     }
   },
   data() {

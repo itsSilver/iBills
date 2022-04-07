@@ -1,7 +1,8 @@
 <template>
   <footer class="footer c-fixed">
     <div class="footer-copyright">
-      <b>&copy; {{ year }}, Live Blockchain</b> &mdash; All Copyrights Reserved
+      <b>&copy; {{ year }}, Blockchain Explorer</b> &mdash; All Copyrights
+      Reserved
     </div>
   </footer>
 </template>
@@ -20,7 +21,7 @@ export default {
 </script>
 <style scoped>
 .footer {
-  background: #0d6fda;
+  background: #121d33;
   height: 100px;
   width: 100%;
   text-align: center;

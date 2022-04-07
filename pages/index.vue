@@ -1,8 +1,10 @@
 <template>
   <div class="mt-neg" id="home">
-    <section class="primary-bg px-4">
+    <section class="px-4 bc-bg">
       <div class="container c-p">
-        <h1 class="main-text">Buy and sell cryptocurrency</h1>
+        <h1 class="main-text">
+          The world’s most popular way to buy, sell, and trade crypto
+        </h1>
         <p class="first">
           Fast and secure way to purchase or exchange cryptocurrencies
         </p>
@@ -12,37 +14,57 @@
       </div>
     </section>
     <home-features />
-    <home-join-us />
+    <!-- <home-join-us /> -->
+    <home-services />
+    <home-exchange />
+    <home-cta />
     <home-contact />
   </div>
 </template>
 
 <script>
 import HomeContact from '~/components/HomeContact.vue'
+import HomeCta from '~/components/HomeCta.vue'
 import HomeFeatures from '~/components/HomeFeatures.vue'
-import HomeJoinUs from '~/components/HomeJoinUs.vue'
+import HomeServices from '~/components/HomeServices.vue'
+import HomeExchange from '~/components/HomeExchange.vue'
 
 export default {
   name: 'Home',
-  components: { HomeFeatures, HomeJoinUs, HomeContact },
+  components: {
+    HomeFeatures,
+    HomeContact,
+    HomeCta,
+    HomeServices,
+    HomeExchange,
+  },
   middleware: 'guest',
   data() {
     return {}
   },
   head() {
     return {
-      title: `Live Blockchain`,
+      title: `Blockchain Explorer`,
     }
   },
 }
 </script>
 <style scoped>
+.bc-bg {
+  background-color: rgb(20, 70, 153);
+  background-image: url('~assets/img/home-hero-gradient.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  color: rgb(255, 255, 255);
+}
 .main-text {
-  font-size: 50px;
-  font-weight: 500;
-  line-height: 50px;
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 65px;
   color: white;
-  width: 330px;
+  max-width: 600px;
+  width: 100%;
 }
 .first {
   color: white;
@@ -56,9 +78,9 @@ export default {
 }
 .get-started {
   background-color: white;
-  color: #0d6fda;
+  color: #121d33;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 600;
   border-radius: 40px;
   width: 180px;
   height: 50px;
