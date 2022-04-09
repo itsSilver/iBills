@@ -31,7 +31,7 @@ export default {
   },
   head() {
     return {
-      title: `Live Blockchain`,
+      title: `Online Blockchain`,
     }
   },
 }

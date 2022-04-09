@@ -1,7 +1,8 @@
 <template>
   <footer class="footer c-fixed">
     <div class="footer-copyright">
-      <b>&copy; {{ year }}, Live Blockchain</b> &mdash; All Copyrights Reserved
+      <b>&copy; {{ year }}, Online Blockchain</b> &mdash; All Copyrights
+      Reserved
     </div>
   </footer>
 </template>

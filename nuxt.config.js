@@ -95,7 +95,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: 'https://newchain.acetrader.co.uk',
+    baseURL: 'https://blockchain.acetrader.co.uk',
   },
 
   auth: {
