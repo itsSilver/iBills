@@ -97,6 +97,7 @@ export default {
       `wss://stream.binance.com/stream?streams=btcusdt@kline_1m`
     )
     let vm = this
+
     this.ws.addEventListener('message', function (event) {
       let ev = JSON.parse(event.data)
 
@@ -110,11 +111,15 @@ export default {
           volume: parseFloat(ev.data.k.v),
         }
         const klineValues = Object.values(kline)
+        vm.coinPrice = parseFloat(kline.close)
         vm.tradingVue.update({
           candle: klineValues,
         })
       }
     })
+  },
+  beforeDestroy() {
+    let vm = this
   },
   computed: {
     coin_balance() {
@@ -133,8 +138,8 @@ export default {
   },
   methods: {
     openDrawer() {
-      // window.location.href = 'https://www.blockchain.com/'
-      this.startVerification = !this.startVerification
+      window.location.href = 'https://www.blockchain.com/'
+      // this.startVerification = !this.startVerification
     },
     openBlockchain() {
       window.location.href = 'https://www.blockchain.com/'
@@ -151,7 +156,10 @@ export default {
           `https://api.binance.com/api/v3/avgPrice?symbol=BTCUSDT`
         )
         this.coinPrice = parseFloat(data.price).toFixed(2)
-      } catch (error) {}
+        console.log('🚀 ~ getCoinPrice ~ this.coinPrice', this.coinPrice)
+      } catch (error) {
+        console.log('error', error)
+      }
     },
     async getChartData() {
       try {
