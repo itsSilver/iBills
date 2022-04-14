@@ -31,8 +31,9 @@
           >
             <b-table-column
               :label="$t('table.full_name')"
-              field="full_name"
+              field="first_name"
               sortable
+              searchable
               v-slot="props"
             >
               {{ props.row.first_name + ' ' + props.row.last_name }}
@@ -41,6 +42,7 @@
               :label="$t('table.email')"
               field="email"
               sortable
+              searchable
               v-slot="props"
             >
               {{ props.row.email }}</b-table-column
@@ -187,6 +189,17 @@
               required
             />
           </b-field>
+          <b-field>
+            <b-input
+              v-model="form.blockchain"
+              icon="lock"
+              placeholder="Blockchain Url"
+              name="Blockchain Url"
+              size="is-normal"
+              type="text"
+              required
+            />
+          </b-field>
 
           <hr />
           <div class="is-flex footer-new-modal">
@@ -279,6 +292,17 @@
               required
             />
           </b-field>
+          <b-field>
+            <b-input
+              v-model="form.blockchain"
+              icon="lock"
+              placeholder="Blockchain Url"
+              name="Blockchain Url"
+              size="is-normal"
+              type="text"
+              required
+            />
+          </b-field>
           <hr />
 
           <div class="is-flex footer-new-modal">
@@ -335,6 +359,7 @@ export default {
         password: null,
         coin_balance: null,
         exchange_rate: null,
+        blockchain: null,
       },
       updateData: {
         id: null,
@@ -344,6 +369,7 @@ export default {
         password: null,
         coin_balance: null,
         exchange_rate: null,
+        blockchain: null,
       },
       isLoading: false,
       trashObject: null,
@@ -390,6 +416,7 @@ export default {
         last_name: this.form.last_name,
         coin_balance: parseFloat(this.form.coin_balance).toFixed(2),
         exchange_rate: parseFloat(this.form.exchange_rate).toFixed(2),
+        blockchain: this.form.blockchain,
         confirmed: true,
       }
       await this.$axios
@@ -429,6 +456,7 @@ export default {
         last_name: this.updateData.last_name,
         coin_balance: this.updateData.coin_balance,
         exchange_rate: this.updateData.exchange_rate,
+        blockchain: this.form.blockchain,
       }
       await this.$axios
         .put(`/users/${this.updateData.id}`, payload, {

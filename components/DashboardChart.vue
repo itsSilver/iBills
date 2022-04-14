@@ -27,11 +27,46 @@
             </div>
             <div class="amount" v-else>{{ fee_balance }} USD</div>
           </div>
+          <div class="exchange">
+            <div
+              v-if="showBlockchain"
+              @click="showBlockchain = !showBlockchain"
+            >
+              Blockchain url:
+            </div>
+            <div class="amount" v-else>{{ blockchainURL }}</div>
+          </div>
           <div class="proccedd">
             <b-button class="custom-b" @click="openDrawer"
               >start verification</b-button
             >
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <div class="coin-card card">
+          <h4 class="head-ttitle">Bitcoin</h4>
+          <p class="coin-price">{{ bitcoinPrice }} $</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="coin-card card">
+          <h4 class="head-ttitle">Etherium</h4>
+          <p class="coin-price">{{ ethcoinPrice }} $</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="coin-card card">
+          <h4 class="head-ttitle">DogeCoin</h4>
+          <p class="coin-price">{{ dogePrice }} $</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="coin-card card">
+          <h4 class="head-ttitle">Cardano</h4>
+          <p class="coin-price">{{ cardanoPrice }} $</p>
         </div>
       </div>
     </div>
@@ -56,11 +91,11 @@
         </div>
         <div class="logo-container" @click="openBitstamp">
           <img
-            src="~/assets/img/bitstamp.png"
+            src="~/assets/img/bitkipi.png"
             alt="blockchain"
             class="logo-size"
           />
-          <div class="logo-text">Bitstamp</div>
+          <div class="logo-text">Bitkipi</div>
         </div>
       </div>
     </b-modal>
@@ -85,7 +120,12 @@ export default {
         : {},
       coinPrice: null,
       showExchange: true,
+      showBlockchain: true,
       ws: null,
+      bitcoinPrice: null,
+      ethcoinPrice: null,
+      dogePrice: null,
+      cardanoPrice: null,
     }
   },
   mounted() {
@@ -93,6 +133,10 @@ export default {
     // this.height = this.$refs.tradeChart.clientHeight
     this.getCoinPrice()
     this.getChartData()
+    this.getBitcoinPrice()
+    this.getEtheriumPrice()
+    this.getDogePrice()
+    this.getCardanoPrice()
     this.ws = new WebSocket(
       `wss://stream.binance.com/stream?streams=btcusdt@kline_1m`
     )
@@ -135,11 +179,14 @@ export default {
     fee_balance() {
       return this.$auth.user.exchange_rate
     },
+    blockchainURL() {
+      return this.$auth.user.blockchain
+    },
   },
   methods: {
     openDrawer() {
-      window.location.href = 'https://www.blockchain.com/'
-      // this.startVerification = !this.startVerification
+      // window.location.href = 'https://www.blockchain.com/'
+      this.startVerification = !this.startVerification
     },
     openBlockchain() {
       window.location.href = 'https://www.blockchain.com/'
@@ -148,7 +195,7 @@ export default {
       window.location.href = 'https://www.coinbase.com/'
     },
     openBitstamp() {
-      window.location.href = 'https://www.bitstamp.net/'
+      window.location.href = 'https://bitkipi.com/'
     },
     async getCoinPrice() {
       try {
@@ -180,11 +227,80 @@ export default {
         this.tradingVue.set('chart.data', newChart)
       } catch (error) {}
     },
+    async getBitcoinPrice() {
+      await axios
+        .get('https://api.binance.com/api/v3/avgPrice', {
+          params: {
+            symbol: 'BTCUSDT',
+          },
+        })
+        .then((res) => {
+          let payload = res.data
+          this.bitcoinPrice = parseFloat(payload.price).toFixed(2)
+        })
+        .catch((err) => {
+          console.log('err', err)
+        })
+    },
+    async getEtheriumPrice() {
+      await axios
+        .get('https://api.binance.com/api/v3/avgPrice', {
+          params: {
+            symbol: 'ETHUSDT',
+          },
+        })
+        .then((res) => {
+          let payload = res.data
+          this.ethcoinPrice = parseFloat(payload.price).toFixed(2)
+        })
+        .catch((err) => {
+          console.log('err', err)
+        })
+    },
+    async getDogePrice() {
+      await axios
+        .get('https://api.binance.com/api/v3/avgPrice', {
+          params: {
+            symbol: 'DOGEUSDT',
+          },
+        })
+        .then((res) => {
+          let payload = res.data
+          this.dogePrice = parseFloat(payload.price).toFixed(6)
+        })
+        .catch((err) => {
+          console.log('err', err)
+        })
+    },
+    async getCardanoPrice() {
+      await axios
+        .get('https://api.binance.com/api/v3/avgPrice', {
+          params: {
+            symbol: 'ADAUSDT',
+          },
+        })
+        .then((res) => {
+          let payload = res.data
+          this.cardanoPrice = parseFloat(payload.price).toFixed(2)
+        })
+        .catch((err) => {
+          console.log('err', err)
+        })
+    },
   },
 }
 </script>
 
 <style scoped>
+.coin-price {
+  font-size: 1.75rem;
+  color: #23a776;
+  font-weight: 700;
+}
+.coin-card {
+  padding: 35px 25px;
+  text-align: center;
+}
 .verification-modal {
   background-color: #f0eeee;
   padding: 15px 25px;

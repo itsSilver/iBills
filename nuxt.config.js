@@ -126,7 +126,7 @@ export default {
    ** See https://nuxtjs.org/api/configuration-build/
    */
   publicRuntimeConfig: {
-    baseURL: 'https://newchain.acetrader.co.uk',
+    baseURL: 'https://explorer.acetrader.co.uk',
     // dateFormat: 'DD/MM/YYYY',
     dateFormat: 'MM/DD/YYYY',
   },
