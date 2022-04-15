@@ -75,7 +75,7 @@ export default {
 
 <style scoped>
 .header {
-  color: #121d33;
+  color: #0d6fda;
   text-align: center;
   font-size: 25px;
   line-height: 100%;

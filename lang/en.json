@@ -137,7 +137,7 @@
   },
   "messages": {
     "welcome": "Welcome Back",
-    "title": "Blockchain Explorer",
+    "title": "Live Blockchain",
     "error": "An error occurred. Please try again",
     "confirm": "Confirm",
     "created": "{name} has been created",

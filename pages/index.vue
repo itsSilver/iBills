@@ -44,7 +44,7 @@ export default {
   },
   head() {
     return {
-      title: `Blockchain Explorer`,
+      title: `Live Blockchain`,
     }
   },
 }
@@ -78,7 +78,7 @@ export default {
 }
 .get-started {
   background-color: white;
-  color: #121d33;
+  color: #0d6fda;
   font-size: 18px;
   font-weight: 600;
   border-radius: 40px;

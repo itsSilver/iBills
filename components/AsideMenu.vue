@@ -5,7 +5,7 @@
   >
     <aside-tools :is-main-menu="true">
       <span slot="label" @click="openMainDrawer" class="cursor-pointer">
-        <b>Blockchain Explorer</b>
+        <b>Live Blockchain</b>
       </span>
     </aside-tools>
     <div class="menu is-menu-main custom-sidebar">

@@ -5,7 +5,7 @@
     class="navbar is-fixed-top"
   >
     <div class="navbar-brand custom-logo-login" @click="$router.push('/')">
-      Blockchain Explorer
+      Live Blockchain
     </div>
   </nav>
 </template>
