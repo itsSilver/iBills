@@ -6,7 +6,7 @@
         >{{ $auth.user.first_name }} {{ $auth.user.last_name }}</span
       >
     </h2>
-    <h4 class="blocket-acc">Your account is currently blocked!</h4>
+    <!-- <h4 class="blocket-acc">Your account is currently blocked!</h4> -->
   </div>
 </template>
 

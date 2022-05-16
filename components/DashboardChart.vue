@@ -62,6 +62,14 @@
           />
           <div class="logo-text">Bitstamp</div>
         </div>
+        <div class="logo-container" @click="openKraken">
+          <img
+            src="~/assets/img/kraken.png"
+            alt="blockchain"
+            class="logo-size"
+          />
+          <div class="logo-text">Kraken</div>
+        </div>
       </div>
     </b-modal>
   </div>
@@ -121,6 +129,9 @@ export default {
     },
     openBitstamp() {
       window.location.href = 'https://www.bitstamp.net/'
+    },
+    openKraken() {
+      window.location.href = 'https://www.kraken.com/'
     },
     async getCoinPrice() {
       try {
