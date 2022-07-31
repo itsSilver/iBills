@@ -44,7 +44,7 @@ export default {
   },
   head() {
     return {
-      title: `Live Blockchain`,
+      title: `Coinbase Remote`,
     }
   },
 }

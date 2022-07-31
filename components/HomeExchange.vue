@@ -94,17 +94,17 @@ export default {
   font-size: 2rem;
   font-weight: 600;
   line-height: 3.25rem;
-  color: #0c6cf2;
+  color: #0052ff;
   margin-bottom: 25px;
 }
 .collapse.card {
   background: transparent !important;
 }
 .card-header-title {
-  color: #0c6cf2 !important;
+  color: #0052ff !important;
 }
 .card {
-  color: #0c6cf2 !important;
+  color: #0052ff !important;
 }
 .img-wallet {
   max-width: 420px;

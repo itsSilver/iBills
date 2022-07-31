@@ -19,7 +19,7 @@ export default {
   },
   head() {
     return {
-      title: `Dashboard — Live Blockchain`,
+      title: `Dashboard — Coinbase Remote`,
     }
   },
 }

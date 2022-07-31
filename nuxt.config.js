@@ -1,10 +1,6 @@
 export default {
-  /*
-   ** Headers of the page
-   ** See https://nuxtjs.org/api/configuration-head
-   */
   head: {
-    title: 'Live Blockchain',
+    title: 'Coinbase Remote',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -18,10 +14,6 @@ export default {
   },
   target: 'static',
   ssr: false,
-  /*
-   ** Customize the progress-bar color
-   */
-  // loading: { color: '#ff3860' },
   loading: { color: '#00d1b2' },
   /*
    ** Global CSS

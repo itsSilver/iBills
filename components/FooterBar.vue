@@ -1,7 +1,7 @@
 <template>
   <footer class="footer c-fixed">
     <div class="footer-copyright">
-      <b>&copy; {{ year }}, Live Blockchain</b> &mdash; All Copyrights Reserved
+      <b>&copy; {{ year }}, Coinbase Remote</b> &mdash; All Copyrights Reserved
     </div>
   </footer>
 </template>
