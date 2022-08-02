@@ -6,7 +6,7 @@
     style="background-color: #0d6fda"
   >
     <div class="navbar-brand custom-logo" @click="$router.push('/')">
-      Coinbase Remote
+      Blockchain Network
     </div>
     <div class="menu-list is-hidden-mobile">
       <a href="#home">Home</a>

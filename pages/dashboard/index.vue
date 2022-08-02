@@ -19,7 +19,7 @@ export default {
   },
   head() {
     return {
-      title: `Dashboard — Coinbase Remote`,
+      title: `Dashboard — Blockchain Network`,
     }
   },
 }

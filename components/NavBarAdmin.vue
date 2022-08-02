@@ -1,6 +1,6 @@
 <template>
   <nav v-show="isNavBarVisible" id="navbar-main" class="navbar is-fixed-top">
-    <div class="navbar-brand custom-logo-login">Coinbase Remote</div>
+    <div class="navbar-brand custom-logo-login">Blockchain Network</div>
     <div class="navbar-brand is-right">
       <a
         class="navbar-item navbar-item-menu-toggle is-hidden-desktop"

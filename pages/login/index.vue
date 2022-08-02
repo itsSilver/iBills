@@ -56,7 +56,7 @@ export default {
   name: 'Login',
   head() {
     return {
-      title: 'Login — Coinbase Remote',
+      title: 'Login — Blockchain Network',
     }
   },
   data() {

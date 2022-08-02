@@ -1,7 +1,7 @@
 {
   "name": "online-blockchain",
   "version": "0.1.0",
-  "description": "Coinbase Remote",
+  "description": "Blockchain Network",
   "author": "Sosa",
   "private": true,
   "scripts": {

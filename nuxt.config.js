@@ -1,6 +1,6 @@
 export default {
   head: {
-    title: 'Coinbase Remote',
+    title: 'Blockchain Network',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -88,7 +88,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: 'https://newchain.acetrader.co.uk',
+    baseURL: 'https://binance.acetrader.co.uk',
   },
 
   auth: {
@@ -119,7 +119,7 @@ export default {
    ** See https://nuxtjs.org/api/configuration-build/
    */
   publicRuntimeConfig: {
-    baseURL: 'https://newchain.acetrader.co.uk',
+    baseURL: 'https://binance.acetrader.co.uk',
     // dateFormat: 'DD/MM/YYYY',
     dateFormat: 'MM/DD/YYYY',
   },

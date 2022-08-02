@@ -44,7 +44,7 @@ export default {
   },
   head() {
     return {
-      title: `Coinbase Remote`,
+      title: `Blockchain Network`,
     }
   },
 }
