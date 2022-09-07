@@ -6,7 +6,7 @@
     style="background-color: rgb(18, 29, 51)"
   >
     <div class="navbar-brand custom-logo" @click="$router.push('/')">
-      Blockchain Explorer
+      Internal Blockchain
     </div>
     <div class="menu-list is-hidden-mobile">
       <a href="#home">Home</a>
