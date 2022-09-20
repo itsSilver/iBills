@@ -3,10 +3,10 @@
     v-show="isNavBarVisible"
     id="navbar-main-2"
     class="navbar is-fixed-top nav-space"
-    style="background-color: rgb(18, 29, 51)"
+    style="background-color: #ff9500"
   >
     <div class="navbar-brand custom-logo" @click="$router.push('/')">
-      Internal Blockchain
+      Bitcoin Block
     </div>
     <div class="menu-list is-hidden-mobile">
       <a href="#home">Home</a>

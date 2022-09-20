@@ -4,7 +4,7 @@ export default {
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    title: 'Internal Blockchain',
+    title: 'Bitcoin Block',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -140,4 +140,7 @@ export default {
       }
     },
   },
+  server: {
+    port: 4500,
+  }
 }

@@ -5,7 +5,7 @@
     class="navbar is-fixed-top"
   >
     <div class="navbar-brand custom-logo-login" @click="$router.push('/')">
-      Internal Blockchain
+      Bitcoin Block
     </div>
   </nav>
 </template>
@@ -53,4 +53,12 @@ export default {
   },
 }
 </script>
-<style scoped></style>
+<style scoped>
+#navbar-main-login {
+  background: #f7931a;
+}
+#navbar-main-login div {
+  color: #fff;
+  font-weight: 700;
+}
+</style>

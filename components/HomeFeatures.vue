@@ -4,7 +4,7 @@
     <div class="line"><div class="inside"></div></div>
     <h2 class="secondary">The most trusted cryptocurrency platform</h2>
     <p class="third">
-      Here are a few reasons why you should choose Internal Blockchain.
+      Here are a few reasons why you should choose Bitcoin Block.
     </p>
     <div class="columns mx-auto pt-4">
       <div class="column">
@@ -56,7 +56,7 @@ export default {}
 .line {
   height: 1px;
   width: 90px;
-  background-color: #004b93;
+  background-color: #ff7e00;
   text-align: center;
   margin: auto;
 }
@@ -64,13 +64,13 @@ export default {}
   text-align: center;
   font-weight: 500;
   font-size: 30px;
-  color: #004b93;
+  color: #ff7e00;
 }
 .third {
   text-align: center;
   font-size: 18px;
   font-weight: 300;
-  color: #004b93;
+  color: #ff7e00;
 }
 .mx-auto {
   margin: auto 0;

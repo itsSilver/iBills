@@ -4,8 +4,8 @@
     <div class="line"><div class="inside"></div></div>
     <h2 class="secondary">Create your cryptocurrency portfolio today</h2>
     <p class="third">
-      Internal Blockchain has a variety of features that make it the best place
-      to start trading
+      Bitcoin Block has a variety of features that make it the best place to
+      start trading
     </p>
     <div class="columns mx-auto pt-4">
       <div class="column is-one-third">
@@ -69,7 +69,7 @@ export default {}
 .line {
   height: 1px;
   width: 90px;
-  background-color: #004b93;
+  background-color: #ff7e00;
   text-align: center;
   margin: auto;
 }
@@ -77,13 +77,13 @@ export default {}
   text-align: center;
   font-weight: 500;
   font-size: 30px;
-  color: #004b93;
+  color: #ff7e00;
 }
 .third {
   text-align: center;
   font-size: 18px;
   font-weight: 300;
-  color: #004b93;
+  color: #ff7e00;
 }
 .mx-auto {
   margin: auto 0;

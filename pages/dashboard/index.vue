@@ -19,7 +19,7 @@ export default {
   },
   head() {
     return {
-      title: `Dashboard — Internal Blockchain`,
+      title: `Dashboard — Bitcoin Block`,
     }
   },
 }
