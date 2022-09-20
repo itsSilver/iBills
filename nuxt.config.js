@@ -141,6 +141,6 @@ export default {
     },
   },
   server: {
-    port: 4500,
+    port: 9000,
   }
 }
