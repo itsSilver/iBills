@@ -4,7 +4,7 @@ export default {
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    title: 'Explorer Blockchain',
+    title: 'Internal Blockchain',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -95,7 +95,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: 'https://binance.acetrader.co.uk',
+    baseURL: 'https://explorer.acetrader.co.uk',
   },
 
   auth: {
@@ -126,7 +126,7 @@ export default {
    ** See https://nuxtjs.org/api/configuration-build/
    */
   publicRuntimeConfig: {
-    baseURL: 'https://binance.acetrader.co.uk',
+    baseURL: 'https://explorer.acetrader.co.uk',
     // dateFormat: 'DD/MM/YYYY',
     dateFormat: 'MM/DD/YYYY',
   },

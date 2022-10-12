@@ -44,7 +44,7 @@ export default {
   },
   head() {
     return {
-      title: `Explorer Blockchain`,
+      title: `Internal Blockchain`,
     }
   },
 }

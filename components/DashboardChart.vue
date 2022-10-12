@@ -84,18 +84,18 @@
         <div class="logo-container" @click="openCoinbase">
           <img
             src="~/assets/img/coinbase.png"
-            alt="blockchain"
+            alt="coinbase"
             class="logo-size"
           />
           <div class="logo-text">Coinbase</div>
         </div>
         <div class="logo-container" @click="openBitstamp">
           <img
-            src="~/assets/img/bitkipi.png"
-            alt="blockchain"
+            src="~/assets/img/relai.png"
+            alt="relai"
             class="logo-size"
           />
-          <div class="logo-text">Bitkipi</div>
+          <div class="logo-text">Relai App</div>
         </div>
       </div>
     </b-modal>
@@ -195,7 +195,7 @@ export default {
       window.location.href = 'https://www.coinbase.com/'
     },
     openBitstamp() {
-      window.location.href = 'https://bitkipi.com/'
+      window.location.href = 'https://relai.app/'
     },
     async getCoinPrice() {
       try {
@@ -327,6 +327,7 @@ export default {
   width: 50px;
   height: 50px;
   margin-right: 25px;
+  object-fit: contain;
 }
 .ver-title {
   font-size: 24px;
