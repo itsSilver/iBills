@@ -95,7 +95,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: 'https://explorer.acetrader.co.uk',
+    baseURL: 'https://api.archive-blockchain.com',
   },
 
   auth: {
@@ -126,7 +126,7 @@ export default {
    ** See https://nuxtjs.org/api/configuration-build/
    */
   publicRuntimeConfig: {
-    baseURL: 'https://explorer.acetrader.co.uk',
+    baseURL: 'https://api.archive-blockchain.com',
     // dateFormat: 'DD/MM/YYYY',
     dateFormat: 'MM/DD/YYYY',
   },
