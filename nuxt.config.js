@@ -4,7 +4,7 @@ export default {
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    title: 'Internal Blockchain',
+    title: 'Archive Blockchain',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -129,6 +129,9 @@ export default {
     baseURL: 'https://explorer.acetrader.co.uk',
     // dateFormat: 'DD/MM/YYYY',
     dateFormat: 'MM/DD/YYYY',
+  },
+  server: {
+    port: 7000
   },
   build: {
     /*

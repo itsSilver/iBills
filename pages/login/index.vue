@@ -56,7 +56,7 @@ export default {
   name: 'Login',
   head() {
     return {
-      title: 'Login — Internal Blockchain',
+      title: 'Login — Archive Blockchain',
     }
   },
   data() {
