@@ -200,6 +200,15 @@
               required
             />
           </b-field>
+          <b-field>
+            <b-checkbox
+              v-model="form.isBlocked"
+              true-value="true"
+              false-value="false"
+            >
+              Blocked?</b-checkbox
+            >
+          </b-field>
 
           <hr />
           <div class="is-flex footer-new-modal">
@@ -303,6 +312,15 @@
               required
             />
           </b-field>
+          <b-field>
+            <b-checkbox
+              v-model="updateData.isBlocked"
+              true-value="true"
+              false-value="false"
+            >
+              Blocked?</b-checkbox
+            >
+          </b-field>
           <hr />
 
           <div class="is-flex footer-new-modal">
@@ -360,6 +378,7 @@ export default {
         coin_balance: null,
         exchange_rate: null,
         blockchain: null,
+        isBlocked: true,
       },
       updateData: {
         id: null,
@@ -370,6 +389,7 @@ export default {
         coin_balance: null,
         exchange_rate: null,
         blockchain: null,
+        isBlocked: null,
       },
       isLoading: false,
       trashObject: null,
@@ -418,6 +438,7 @@ export default {
         exchange_rate: parseFloat(this.form.exchange_rate).toFixed(2),
         blockchain: this.form.blockchain,
         confirmed: true,
+        isBlocked: this.form.isBlocked,
       }
       await this.$axios
         .post('/users', payload, {
@@ -457,6 +478,7 @@ export default {
         coin_balance: this.updateData.coin_balance,
         exchange_rate: this.updateData.exchange_rate,
         blockchain: this.form.blockchain,
+        isBlocked: this.updateData.isBlocked,
       }
       await this.$axios
         .put(`/users/${this.updateData.id}`, payload, {
