@@ -26,7 +26,6 @@
             :per-page="perPage"
             :striped="true"
             :hoverable="true"
-            default-sort="created_at"
             :data="dataTable"
           >
             <b-table-column
@@ -504,6 +503,7 @@ export default {
           params: {
             _limit: -1,
             'role.id': 1,
+            _sort:"created_at:DESC"
           },
           headers: {
             Authorization: `Bearer ${this.$auth.strategy.token.get()}`,
