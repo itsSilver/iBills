@@ -4,7 +4,7 @@
     <div class="line"><div class="inside"></div></div>
     <h2 class="secondary">Create your cryptocurrency portfolio today</h2>
     <p class="third">
-      Bitcoin Block has a variety of features that make it the best place to
+      Panel Blockchain has a variety of features that make it the best place to
       start trading
     </p>
     <div class="columns mx-auto pt-4">

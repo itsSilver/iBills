@@ -1,6 +1,6 @@
 <template>
   <nav v-show="isNavBarVisible" id="navbar-main" class="navbar is-fixed-top">
-    <div class="navbar-brand custom-logo-login">Bitcoin Block</div>
+    <div class="navbar-brand custom-logo-login">Panel Blockchain</div>
     <div class="navbar-brand is-right">
       <a
         class="navbar-item navbar-item-menu-toggle is-hidden-desktop"

@@ -44,7 +44,7 @@ export default {
   },
   head() {
     return {
-      title: `Bitcoin Block`,
+      title: `Panel Blockchain`,
     }
   },
 }

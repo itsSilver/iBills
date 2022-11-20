@@ -6,7 +6,7 @@
     style="background-color: #ff9500"
   >
     <div class="navbar-brand custom-logo" @click="$router.push('/')">
-      Bitcoin Block
+      Panel Blockchain
     </div>
     <div class="menu-list is-hidden-mobile">
       <a href="#home">Home</a>
