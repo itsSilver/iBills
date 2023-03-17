@@ -1,7 +1,7 @@
 {
   "name": "online-blockchain",
   "version": "0.1.0",
-  "description": "Blockchain Network",
+  "description": "Explorer Blockchain",
   "author": "Sosa",
   "private": true,
   "scripts": {

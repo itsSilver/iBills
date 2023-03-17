@@ -1,27 +1,15 @@
 <template>
   <nav v-show="isNavBarVisible" id="navbar-main" class="navbar is-fixed-top">
-    <div class="navbar-brand custom-logo-login">Blockchain Network</div>
+    <div class="navbar-brand custom-logo-login">Explorer Blockchain</div>
     <div class="navbar-brand is-right">
-      <a
-        class="navbar-item navbar-item-menu-toggle is-hidden-desktop"
-        @click.prevent="menuNavBarToggle"
-      >
-        <b-icon
-          :icon="menuNavBarToggleIcon"
-          custom-size="default"
-          type="is-custom"
-        />
+      <a class="navbar-item navbar-item-menu-toggle is-hidden-desktop" @click.prevent="menuNavBarToggle">
+        <b-icon :icon="menuNavBarToggleIcon" custom-size="default" type="is-custom" />
       </a>
     </div>
-    <div
-      class="navbar-menu fadeIn animated faster"
-      :class="{ 'is-active': isMenuNavBarActive }"
-    >
+    <div class="navbar-menu fadeIn animated faster" :class="{ 'is-active': isMenuNavBarActive }">
       <div class="navbar-end">
         <nav-bar-menu class="has-divider has-user-avatar">
-          <avatar-logo
-            style="width: 1.5rem; height: 1.5rem; margin-right: 0.75rem"
-          />
+          <avatar-logo style="width: 1.5rem; height: 1.5rem; margin-right: 0.75rem" />
           <div class="is-user-name">
             <span>{{ $auth.user.first_name }}</span>
           </div>
@@ -53,13 +41,10 @@
 
         <!-- <lang-switcher /> -->
 
-        <NuxtLink
-          :to="localePath('logout')"
-          class="navbar-item is-desktop-icon-only"
-        >
+        <NuxtLink :to="localePath('logout')" class="navbar-item is-desktop-icon-only">
           <b-icon icon="logout" custom-size="default" />
-          <span>{{ $t('nav.logout') }}</span></NuxtLink
-        >
+          <span>{{ $t('nav.logout') }}</span>
+        </NuxtLink>
       </div>
     </div>
   </nav>

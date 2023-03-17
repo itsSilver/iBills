@@ -1,10 +1,12 @@
 <template>
   <div class="container pt-c" id="features">
     <div class="header">Features</div>
-    <div class="line"><div class="inside"></div></div>
+    <div class="line">
+      <div class="inside"></div>
+    </div>
     <h2 class="secondary">The most trusted cryptocurrency platform</h2>
     <p class="third">
-      Here are a few reasons why you should choose Blockchain Network.
+      Here are a few reasons why you should choose Explorer Blockchain.
     </p>
     <div class="columns mx-auto pt-4">
       <div class="column">
@@ -53,6 +55,7 @@ export default {}
   padding: 10px;
   padding-bottom: 15px;
 }
+
 .line {
   height: 1px;
   width: 90px;
@@ -60,26 +63,30 @@ export default {}
   text-align: center;
   margin: auto;
 }
+
 .secondary {
   text-align: center;
   font-weight: 500;
   font-size: 30px;
   color: #004b93;
 }
+
 .third {
   text-align: center;
   font-size: 18px;
   font-weight: 300;
   color: #004b93;
 }
+
 .mx-auto {
   margin: auto 0;
 }
+
 .custom-card {
   text-align: center;
   padding: 40px 15px;
 }
+
 .custom-card span {
   font-size: 40px;
-}
-</style>
+}</style>

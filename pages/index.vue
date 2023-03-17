@@ -44,7 +44,7 @@ export default {
   },
   head() {
     return {
-      title: `Blockchain Network`,
+      title: `Explorer Blockchain`,
     }
   },
 }
@@ -58,6 +58,7 @@ export default {
   background-position: center bottom;
   color: rgb(255, 255, 255);
 }
+
 .main-text {
   font-size: 60px;
   font-weight: 600;
@@ -66,6 +67,7 @@ export default {
   max-width: 600px;
   width: 100%;
 }
+
 .first {
   color: white;
   font-size: 20px;
@@ -73,9 +75,11 @@ export default {
   margin: 50px 0;
   width: 40%;
 }
+
 .c-p {
   padding: 10% 0;
 }
+
 .get-started {
   background-color: white;
   color: #0d6fda;
@@ -87,6 +91,7 @@ export default {
   cursor: pointer;
   border: none;
 }
+
 @media (max-width: 767px) {
   .first {
     color: white;
@@ -95,6 +100,7 @@ export default {
     margin: 50px 0;
     width: 100%;
   }
+
   .main-text {
     font-size: 50px;
     font-weight: 500;
@@ -102,5 +108,4 @@ export default {
     color: white;
     width: 100%;
   }
-}
-</style>
+}</style>

@@ -3,34 +3,17 @@
     <div class="hero-body">
       <div class="container">
         <div class="columns is-centered">
-          <div
-            class="column is-5-tablet is-4-desktop is-3-widescreen"
-            style="background-color: #fff"
-          >
+          <div class="column is-5-tablet is-4-desktop is-3-widescreen" style="background-color: #fff">
             <h2 class="default-title">Sign In</h2>
 
             <form class="box" @submit.prevent="onSubmit">
               <b-field>
-                <b-input
-                  v-model="form.identifier"
-                  icon="email"
-                  type="email"
-                  placeholder="E-mail"
-                  name="email"
-                  size="is-normal"
-                  required
-                />
+                <b-input v-model="form.identifier" icon="email" type="email" placeholder="E-mail" name="email"
+                  size="is-normal" required />
               </b-field>
               <b-field>
-                <b-input
-                  v-model="form.password"
-                  icon="lock"
-                  type="password"
-                  placeholder="Password"
-                  name="password"
-                  size="is-normal"
-                  required
-                />
+                <b-input v-model="form.password" icon="lock" type="password" placeholder="Password" name="password"
+                  size="is-normal" required />
               </b-field>
 
               <div class="field">
@@ -56,7 +39,7 @@ export default {
   name: 'Login',
   head() {
     return {
-      title: 'Login — Blockchain Network',
+      title: 'Login — Explorer Blockchain',
     }
   },
   data() {
@@ -77,9 +60,8 @@ export default {
           })
           .then((res) => {
             this.$buefy.snackbar.open({
-              message: `${this.$t('messages.welcome')} ${
-                res.data.user.first_name
-              }`,
+              message: `${this.$t('messages.welcome')} ${res.data.user.first_name
+                }`,
               queue: false,
             })
           })
@@ -103,11 +85,13 @@ export default {
   text-align: center;
   padding: 1rem 0.5rem;
 }
+
 .login-icon {
   width: 150px;
   height: 150px;
   margin: 1.5rem auto;
 }
+
 .login-icon svg {
   width: 100%;
   height: 100%;

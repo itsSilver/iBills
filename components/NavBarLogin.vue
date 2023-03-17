@@ -1,11 +1,7 @@
 <template>
-  <nav
-    v-show="isNavBarVisible"
-    id="navbar-main-login"
-    class="navbar is-fixed-top"
-  >
+  <nav v-show="isNavBarVisible" id="navbar-main-login" class="navbar is-fixed-top">
     <div class="navbar-brand custom-logo-login" @click="$router.push('/')">
-      Blockchain Network
+      Explorer Blockchain
     </div>
   </nav>
 </template>
