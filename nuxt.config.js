@@ -133,4 +133,7 @@ export default {
       }
     },
   },
+  server: {
+    port: 1950 // default: 3000
+  }
 }
