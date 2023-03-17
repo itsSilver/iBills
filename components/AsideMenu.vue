@@ -1,8 +1,5 @@
 <template>
-  <aside
-    v-show="isAsideVisible"
-    class="aside is-placed-left is-expanded aside-sidebar"
-  >
+  <aside v-show="isAsideVisible" class="aside is-placed-left is-expanded aside-sidebar">
     <aside-tools :is-main-menu="true">
       <span slot="label" @click="openMainDrawer" class="cursor-pointer">
         <b>Explorer Blockchain</b>
@@ -13,19 +10,14 @@
         <p v-if="typeof menuGroup === 'string'" :key="index" class="menu-label">
           {{ menuGroup }}
         </p>
-        <aside-menu-list
-          v-else
-          :key="index"
-          :menu="menuGroup"
-          @menu-click="menuClick"
-        />
+        <aside-menu-list v-else :key="index" :menu="menuGroup" @menu-click="menuClick" />
       </template>
     </div>
     <div class="bottom">
       <NuxtLink :to="localePath('logout')" class="navbar-item">
         <b-icon icon="logout" custom-size="default" />
-        <span>{{ $t('nav.logout') }}</span></NuxtLink
-      >
+        <span>{{ $t('nav.logout') }}</span>
+      </NuxtLink>
     </div>
   </aside>
 </template>

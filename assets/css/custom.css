@@ -86,9 +86,11 @@ nav.navbar .navbar-item .control .input {
   color: #111 !important;
 }
 .menu-list a {
-  border-radius: 0 !important;
+border-radius: 0 !important;
   color: #fff !important;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
 }
 .nav-item.nuxt-link-exact-active {
   background: #21314e;
@@ -398,4 +400,9 @@ nav .menu-list {
   nav .menu-list {
     padding-left: 15px;
   }
+}
+.button.is-success {
+  background-color: #FF9500;
+  border-color: transparent;
+  color: #fff;
 }

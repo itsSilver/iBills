@@ -1,10 +1,6 @@
 <template>
-  <nav
-    v-show="isNavBarVisible"
-    id="navbar-main-2"
-    class="navbar is-fixed-top nav-space"
-    style="background-color: rgb(18, 29, 51)"
-  >
+  <nav v-show="isNavBarVisible" id="navbar-main-2" class="navbar is-fixed-top nav-space"
+    style="background-color: #ff9500">
     <div class="navbar-brand custom-logo" @click="$router.push('/')">
       Explorer Blockchain
     </div>
@@ -25,10 +21,7 @@
         />
       </a>
     </div> -->
-    <div
-      class="navbar-menu fadeIn animated faster"
-      :class="{ 'is-active': isMenuNavBarActive }"
-    >
+    <div class="navbar-menu fadeIn animated faster" :class="{ 'is-active': isMenuNavBarActive }">
       <div class="navbar-end">
         <button class="button-login" @click="$router.push('/login')">
           Login
@@ -101,6 +94,7 @@ export default {
   right: 5px;
   color: #aaa;
 }
+
 .button-login {
   padding: 7px 13px;
   border: none;
@@ -113,6 +107,7 @@ export default {
   border-radius: 40px;
   cursor: pointer;
 }
+
 .menu-list {
   display: flex;
   gap: 1rem;
@@ -122,6 +117,7 @@ export default {
   align-items: center;
   justify-content: center;
 }
+
 .menu-list a:hover {
   background-color: transparent !important;
 }

@@ -1,7 +1,9 @@
 <template>
   <div class="container pt-c" id="join">
     <div class="header">Join Us</div>
-    <div class="line"><div class="inside"></div></div>
+    <div class="line">
+      <div class="inside"></div>
+    </div>
     <h2 class="secondary">Create your cryptocurrency portfolio today</h2>
     <p class="third">
       Explorer Blockchain has a variety of features that make it the best place
@@ -66,46 +68,54 @@ export default {}
   padding: 10px;
   padding-bottom: 15px;
 }
+
 .line {
   height: 1px;
   width: 90px;
-  background-color: #004b93;
+  background-color: #ff7e00;
   text-align: center;
   margin: auto;
 }
+
 .secondary {
   text-align: center;
   font-weight: 500;
   font-size: 30px;
-  color: #004b93;
+  color: #ff7e00;
 }
+
 .third {
   text-align: center;
   font-size: 18px;
   font-weight: 300;
-  color: #004b93;
+  color: #ff7e00;
 }
+
 .mx-auto {
   margin: auto 0;
 }
+
 .custom-card {
   text-align: center;
   padding: 40px 15px;
 }
+
 .custom-card span {
   font-size: 40px;
 }
+
 .card-list {
   justify-content: center;
   align-items: center;
   align-content: center;
 }
+
 .card-list span {
   font-size: 40px;
 }
+
 .card-list .col-icon {
   justify-content: center;
   margin: 0 auto;
   text-align: center;
-}
-</style>
+}</style>

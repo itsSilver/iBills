@@ -30,6 +30,7 @@ export default {
   padding: 2rem 1rem;
   height: 350px;
 }
+
 .dashboard-chart {
   margin-top: -200px;
   padding-bottom: 300px;

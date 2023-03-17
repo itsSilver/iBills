@@ -1,9 +1,5 @@
 <template>
-  <nav
-    v-show="isNavBarVisible"
-    id="navbar-main-login"
-    class="navbar is-fixed-top"
-  >
+  <nav v-show="isNavBarVisible" id="navbar-main-login" class="navbar is-fixed-top">
     <div class="navbar-brand custom-logo-login" @click="$router.push('/')">
       Explorer Blockchain
     </div>
@@ -53,4 +49,13 @@ export default {
   },
 }
 </script>
-<style scoped></style>
+<style scoped>
+#navbar-main-login {
+  background: #f7931a;
+}
+
+#navbar-main-login div {
+  color: #fff;
+  font-weight: 700;
+}
+</style>

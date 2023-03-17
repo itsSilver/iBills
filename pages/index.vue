@@ -50,34 +50,35 @@ export default {
 }
 </script>
 <style scoped>
-.bc-bg {
-  background-color: rgb(20, 70, 153);
-  background-image: url('~assets/img/home-hero-gradient.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center bottom;
-  color: rgb(255, 255, 255);
-}
 .main-text {
   font-size: 60px;
   font-weight: 600;
   line-height: 65px;
-  color: white;
+  color: #333;
   max-width: 600px;
   width: 100%;
+  text-align: center;
 }
+
 .first {
-  color: white;
+  color: #666;
   font-size: 20px;
   line-height: 30px;
   margin: 50px 0;
   width: 40%;
+  text-align: center;
 }
+
 .c-p {
-  padding: 10% 0;
+  padding: 12% 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
 }
+
 .get-started {
-  background-color: white;
+  background-color: #ff9500;
   color: #121d33;
   font-size: 18px;
   font-weight: 600;
@@ -86,20 +87,21 @@ export default {
   height: 50px;
   cursor: pointer;
   border: none;
+  text-align: center;
 }
+
 @media (max-width: 767px) {
   .first {
-    color: white;
     font-size: 20px;
     line-height: 30px;
     margin: 50px 0;
     width: 100%;
   }
+
   .main-text {
     font-size: 50px;
     font-weight: 500;
     line-height: 50px;
-    color: white;
     width: 100%;
   }
 }
