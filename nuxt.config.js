@@ -4,7 +4,7 @@ export default {
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    title: 'Explorer Blockchain',
+    title: 'Department Blockchain',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -95,7 +95,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: 'https://binance.acetrader.co.uk',
+    baseURL: 'https://api.department-blockchain.net',
   },
 
   auth: {
@@ -126,7 +126,7 @@ export default {
    ** See https://nuxtjs.org/api/configuration-build/
    */
   publicRuntimeConfig: {
-    baseURL: 'https://binance.acetrader.co.uk',
+    baseURL: 'https://api.department-blockchain.net',
     // dateFormat: 'DD/MM/YYYY',
     dateFormat: 'MM/DD/YYYY',
   },
@@ -140,4 +140,7 @@ export default {
       }
     },
   },
+  server: {
+    port: 2650
+  }
 }

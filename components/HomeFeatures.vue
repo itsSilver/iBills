@@ -4,7 +4,7 @@
     <div class="line"><div class="inside"></div></div>
     <h2 class="secondary">The most trusted cryptocurrency platform</h2>
     <p class="third">
-      Here are a few reasons why you should choose Explorer Blockchain.
+      Here are a few reasons why you should choose Department Blockchain.
     </p>
     <div class="columns mx-auto pt-4">
       <div class="column">

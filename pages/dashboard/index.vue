@@ -19,7 +19,7 @@ export default {
   },
   head() {
     return {
-      title: `Dashboard — Explorer Blockchain`,
+      title: `Dashboard — Department Blockchain`,
     }
   },
 }
